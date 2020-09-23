@@ -24,9 +24,9 @@ $stmt = $conexao->query("select * from tipo_tarefa where id='$idUsuario'");
 		<label class='col-md-3 control-label' for='titulo'>Período do Tipo tarefa</label>  
 			<div class='col-md-2'>
 				<label class='col-md-3 control-label' for='titulo'>Início</label> 
-					<input id='h_inicio' name='h_inicio' type='time' placeholder='' class='form-control input-md' required=''>
+					<input id='h_inicio' name='h_inicio' type='time' placeholder='' value='".$linha['h_inicio']."' class='form-control input-md' required=''>
 				<label class='col-md-3 control-label' for='titulo'>Fim</label>
-					<input id='h_fim' name='h_fim' type='time' placeholder='' class='form-control input-md' required=''>
+					<input id='h_fim' name='h_fim' type='time' placeholder='' value='".$linha['h_fim']."' class='form-control input-md' required=''>
 			</div>
 	</div>
 <!-- Registrar -->
