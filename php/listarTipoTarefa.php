@@ -1,4 +1,5 @@
 <?php
+
 include 'conexao.php';
 
 echo "<table class='table table-striped'>
@@ -13,7 +14,14 @@ echo "<table class='table table-striped'>
 
 $idUsuario = $_SESSION['idusuario'];
 
-$stmt = $conexao->query("select id,descricao from tipo_tarefa where usuario='$idUsuario'");
+$stmt = $conexao->query("
+						SELECT
+						  id,
+						  descricao 
+						FROM
+						  tipo_tarefa 
+						WHERE
+						  usuario = '$idUsuario'");						  
 $contagem = $stmt->rowCount();
 
 if($contagem >= 1){
@@ -29,10 +37,9 @@ foreach($resultado as $linha){
                                 
                 echo"
 					<td>
-					<center><button class='btn btn-primary' style='margin-right: 10px;'><a class='fa fa-search'></a></button><a class='btn btn-primary' style='margin-right: 10px;' href='alterarTipoTarefa.php'><div class='fa fa-edit'></div></a><button class='btn btn-danger' style='margin-right: 10px;'><a class='fa fa-trash' href='../php/excluirTipoTarefa.php?id=".$linha['id']."'></a></button></center>
+						<center><button class='btn btn-primary' style='margin-right: 10px;'><a class='fa fa-search'></a></button><a class='btn btn-primary' style='margin-right: 10px;' href='alterarTipoTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a><button class='btn btn-danger' style='margin-right: 10px;'><a class='fa fa-trash' href='../php/excluirTipoTarefa.php?id=".$linha['id']."'></a></button></center>
 					</td>
 					</tr>";
-
 	}
 		echo"</tbody>
 			 </table>";
