@@ -2,8 +2,16 @@
 include 'conexao.php';
 
 $idUsuario = $_SESSION['idusuario'];
+$idTipoTarefa = $_GET['id'];
 
-$stmt = $conexao->query("select * from tipo_tarefa where id='$idUsuario'");
+$stmt = $conexao->query("
+						SELECT
+						  * 
+						FROM
+						  tipo_tarefa 
+						WHERE
+						  usuario = '$idUsuario' 
+						  AND id = '$idTipoTarefa'");
     $contagem = $stmt->rowCount();
     if($contagem == 1){
 
@@ -11,7 +19,7 @@ $stmt = $conexao->query("select * from tipo_tarefa where id='$idUsuario'");
 
 		foreach($resultado as $linha){
         
-			echo"<form class='form-horizontal' action='../php/submitAlterarTipoTarefa.php' method='POST'>
+			echo"<form class='form-horizontal' action='../php/submitAlterarTipoTarefa.php?id=".$linha['id']."' method='POST'>
 <fieldset>
 <!-- Descricao -->
 	<div class'form-group'>
