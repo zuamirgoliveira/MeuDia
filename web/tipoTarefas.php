@@ -5,7 +5,21 @@
 <?php session_start(); ?>
 <?php include '../import/tipoTarefas.html';?>
 
+<script>
+  $(function() {
+    $('#btn-on').click(function() {
+      let classe = document.querySelector('#btn-on').className;
+      if(classe == "btn btn-primary focus" || classe == "focus btn btn-primary"){
+        $("#btn-on").text("Off").removeClass('btn btn-primary').addClass('btn btn-danger');
+      } else {
+        $("#btn-on").text("On").removeClass('btn btn-danger').addClass('btn btn-primary');
+      }
+    })
+  })
+</script>
+
 <title>Tipos de Tarefas</title>
+
 
 </head>
 

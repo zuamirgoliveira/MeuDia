@@ -36,8 +36,14 @@ foreach($resultado as $linha){
                 ";
                                 
                 echo"
-					<td>
-						<center><button class='btn btn-primary' style='margin-right: 10px;'><a class='fa fa-search'></a></button><a class='btn btn-primary' style='margin-right: 10px;' href='alterarTipoTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a><button class='btn btn-danger' style='margin-right: 10px;'><a class='fa fa-trash' href='../php/excluirTipoTarefa.php?id=".$linha['id']."'></a></button></center>
+					<td> 
+						<center>
+						<div id='console-event'></div>
+							<button class='btn btn-primary' style='margin-right: 3px;'><a class='fa fa-search'></a></button>
+							<a class='btn btn-primary' style='margin-right: 3px;' href='alterarTipoTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a>
+							<button id='btn-on' type='button' class='btn btn-primary' data-toggle='button' aria-pressed='false' autocomplete='off'> On </button>
+							<button class='btn btn-danger' style='margin-right: 3px; margin-left: 3px;'><a class='fa fa-trash' href='../php/excluirTipoTarefa.php?id=".$linha['id']."'></a></button>
+						</center>
 					</td>
 					</tr>";
 	}
@@ -45,4 +51,4 @@ foreach($resultado as $linha){
 			 </table>";
 }
 
-?>    
+?>
