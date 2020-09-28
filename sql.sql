@@ -32,6 +32,8 @@ create table tipo_tarefa(
 id int primary key NOT NULL AUTO_INCREMENT,
 descricao varchar (300) NOT NULL,
 usuario int,
+h_inicio time,
+h_fim time,
 CONSTRAINT usuario FOREIGN KEY (usuario) references usuario(id)
 
 );
