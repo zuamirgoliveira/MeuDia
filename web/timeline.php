@@ -9,33 +9,25 @@
 <?php include '../import/timeline.html';?>
 
 </head>
+
 <body>
-
-
 
 <!-- Menu-->
 <?php include 'menu.php';?>
 
 <!-- Pag -->
- <main class="page-content">
-    <div class="container-fluid">
-
-						
-						<?php include '../php/listarTarefaTimeline.php'; ?>
+<main class="page-content">
+				<div class="container-fluid">						
+					<?php include '../php/listarTarefaTimeline.php'; ?>
 					</ul>
 				</div>
-				</div>
 			</div>
-		</div>		
-
-
-
-
-  </div>
-  </main>
-  <!-- page-content" -->
+		</div>
+	</div>		
 </div>
+</main>
 
-
+<!-- page-content" -->
+</div>
 </body>
 </html>
