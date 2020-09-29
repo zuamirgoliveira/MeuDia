@@ -16,8 +16,7 @@ $idUsuario = $_SESSION['idusuario'];
 
 $stmt = $conexao->query("
 						SELECT
-						  id,
-						  descricao 
+						  *
 						FROM
 						  tipo_tarefa 
 						WHERE
@@ -40,9 +39,13 @@ foreach($resultado as $linha){
 						<center>
 						<div id='console-event'></div>
 							<button class='btn btn-primary' style='margin-right: 3px;'><a class='fa fa-search'></a></button>
-							<a class='btn btn-primary' style='margin-right: 3px;' href='alterarTipoTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a>
-							<button id='btn-on' type='button' class='btn btn-primary' data-toggle='button' aria-pressed='false' autocomplete='off'> On </button>
-							<button class='btn btn-danger' style='margin-right: 3px; margin-left: 3px;'><a class='fa fa-trash' href='../php/excluirTipoTarefa.php?id=".$linha['id']."'></a></button>
+							<a class='btn btn-primary' style='margin-right: 3px;' href='alterarTipoTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a>";
+							if ($linha['liga_desliga'] == 0) {
+								echo"<button id='btn-on-".$linha['id']."' type='button' class='btn btn-primary' data-toggle='button' aria-pressed='false' autocomplete='off' onclick='ligDesl(".$linha['id'].",".$linha['liga_desliga'].")'> On </button>";
+							} else {
+								echo"<button id='btn-on-".$linha['id']."' type='button' class='btn btn-danger' data-toggle='button' aria-pressed='false' autocomplete='off' onclick='ligDesl(".$linha['id'].",".$linha['liga_desliga'].")'> Off </button>";
+							}
+							echo"<button class='btn btn-danger' style='margin-right: 3px; margin-left: 3px;'><a class='fa fa-trash' href='../php/excluirTipoTarefa.php?id=".$linha['id']."'></a></button>
 						</center>
 					</td>
 					</tr>";
