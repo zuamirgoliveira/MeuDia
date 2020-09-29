@@ -7,11 +7,11 @@
 
 <script>
   function ligDesl(id, flag) {
-
-      if(flag == 0){
+    
+      if(flag == 0 || $("#btn-on-"+id).text() == 'On'){
         $("#btn-on-"+id).text("Off").removeClass('btn btn-primary').addClass('btn btn-danger');
         flag = 1;
-      } else if (flag == 1){
+      } else if (flag == 1 || $("#btn-on-"+id).text() == 'Off'){
         $("#btn-on-"+id).text("On").removeClass('btn btn-danger').addClass('btn btn-primary');
         flag = 0;
       }
