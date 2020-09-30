@@ -35,8 +35,13 @@ usuario int,
 h_inicio time,
 h_fim time,
 CONSTRAINT usuario FOREIGN KEY (usuario) references usuario(id)
-
 );
+
+ALTER TABLE tipo_tarefa
+ADD COLUMN dt_desliga DATE;
+
+ALTER TABLE tipo_tarefa
+ADD COLUMN liga_desliga CHAR COMMENT '0 = liga, 1 = desliga';
 
 create table tarefa(
 id int primary key NOT NULL AUTO_INCREMENT,
