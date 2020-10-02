@@ -9,6 +9,7 @@ session_start();
 $idUsuario = $_SESSION['idusuario'];  
 
 $descricao =$_POST['descricao'];
+
 $hInicio =$_POST['h_inicio'];
 $hFim =$_POST['h_fim'];
 
