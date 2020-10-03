@@ -70,6 +70,7 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 	}
 }else{
 	header("Location: ../web/registrarTarefa.php?erroCadastrarTarefa=true");
+}
 }catch(PDOException $e){
 echo 'ERROR: ' . $e->getMessage();
 }
