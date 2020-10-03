@@ -1,5 +1,4 @@
 <?php 
-
 echo"<form class='form-horizontal' id='form' action='../php/cadastrarTarefa.php' method='POST'>
 <fieldset>
 
@@ -71,5 +70,4 @@ echo"<form class='form-horizontal' id='form' action='../php/cadastrarTarefa.php'
 </div>
 </fieldset>
 </form>";
-
 ?>
