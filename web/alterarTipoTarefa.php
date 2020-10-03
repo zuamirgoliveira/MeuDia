@@ -4,7 +4,7 @@
 
 <?php session_start(); ?>
 <title>Alterar Tipo de Tarefa</title>
-<?php include '../import/alterarTipoTarefa.html';?>	
+<?php include '../import/tipoTarefas.html';?>	
 
 </head>
 <body>
@@ -14,7 +14,7 @@
 <!-- Pag -->
 <main class="page-content">
     <div class="container-fluid">
-
+    	<?php include '../php/erroAlterarTipoTarefa.php';?>
 		<?php include '../php/alterarTipoTarefa.php';?>
  
 	</div>
