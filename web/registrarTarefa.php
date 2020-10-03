@@ -17,8 +17,9 @@
 		<main class="page-content">
 			<div class="container-fluid">
 			
+			<?php include '../php/erroValidaCadastrarTarefa.php';?>
 			<?php include '../php/validaCadastrarTarefa.php';?>
-
+			
 		</main>
 	</div>
 	

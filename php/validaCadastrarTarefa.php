@@ -6,7 +6,7 @@ echo"<form class='form-horizontal' id='form' action='../php/cadastrarTarefa.php'
 <div class='form-group'>
 	<label class='col-md-4 control-label' for='titulo'>Título</label>  
 	<div class='col-md-4'>
-		<input id='titulo' name='titulo' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números.' placeholder='' class='form-control input-md' maxlength='30' required=''>		
+		<input id='titulo' name='titulo' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números.' placeholder='' class='form-control input-md' maxlength='30' required=''>
 	</div>
 </div>
 
