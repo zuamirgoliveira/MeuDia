@@ -16,7 +16,7 @@ $tipotarefa =$_POST['tipotarefa'];
 $prioridade =$_POST['prioridade'];
 
 
-$stmt = $conexao->query("select h_estudo_inicio,h_estudo_fim,h_sono_inicio,h_sono_fim,h_trabalho_inicio,h_trabalho_fim,h_lazer_inicio,h_lazer_fim from usuario where id='$idUsuario'");
+$stmt = $conexao->query("select h_sono_inicio,h_sono_fim from usuario where id='$idUsuario'");
 		$contagem = $stmt->rowCount();
 		if($contagem == 1){
 
@@ -27,10 +27,11 @@ $stmt = $conexao->query("select h_estudo_inicio,h_estudo_fim,h_sono_inicio,h_son
 				if(is_null($linha["h_sono_inicio"]) and is_null($linha["h_sono_fim"]) ){
 
 						// redirecionar para pag de perfil, completar algumas informações
+						header("Location: ../web/alterarPerfil.php");
 
 				}else{
 
-							$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim,tipo_tarefa,prioridade) values (?,?,?,?,?,?,?,?)");
+							$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim, data_tarefa, tipo_tarefa,prioridade) values (?,?,?,?,?,?, SYSDATE(), ?,?)");
 
 							$stmt -> bindParam(1,$idUsuario);
 							$stmt -> bindParam(2,$titulo);

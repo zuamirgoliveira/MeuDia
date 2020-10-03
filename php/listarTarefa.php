@@ -6,12 +6,11 @@ include 'conexao.php';
 			    <thead>					
 					<tr class='bg-dark text-white' style='text-align:center'>
 						<th>Título</th>
-						<th>Descrição</th>
 						<th>Horário Início</th>
 						<th>Horário Fim</th>
 						<th>Prioridade</th>
 						<th>Ações</th>
-						<a class='btn btn-primary' style='margin-left:95%' href='../web/registrartarefa.php'><i class='fa fa-plus'></i></a>
+						<a class='btn btn-primary' style='margin-left:95%' href='../web/registrarTarefa.php'><i class='fa fa-plus'></i></a>
 					</tr>					
 				</thead>
 				<tbody>";
@@ -27,11 +26,10 @@ $resultado = $stmt->fetchAll();
 foreach($resultado as $linha){
         
         echo"
-			<tr style='text-align:center'>
-                <td>".$linha['titulo']."</td>
-                <td>".$linha['descricao']."</td>
-                <td>".$linha['h_inicio']."<i class='fa fa-clock'></td>
-                <td>".$linha['h_fim']."<i class='fa fa-clock'></td>
+			<tr style='text-align:center;'>
+                <td style='white-space: nowrap; text-align:left;'>".$linha['titulo']."</td>
+                <td style='white-space: nowrap;'>".$linha['h_inicio']."<i class='fa fa-clock'></td>
+                <td style='white-space: nowrap;'>".$linha['h_fim']."<i class='fa fa-clock'></td>
                 ";
                 
                 switch ($linha['nemotecnico']) {
@@ -54,9 +52,13 @@ foreach($resultado as $linha){
                 }
 
                 echo"
-                <td>
-					<center><button class='btn btn-primary' style='margin-left: 8px' style='margin-right: 15px;'><i class='fa fa-search'></i></button><a class='btn btn-primary' style='margin-left: 8px' style='margin-right: 10px;' href='alterarTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a><button class='btn btn-danger' style='margin-left: 8px' style='margin-right: 10px;'><a class='fa fa-trash' href='../php/excluirTarefa.php?id=".$linha['id']."'></a></button></center>
-				</td>
+                <td style='white-space: nowrap;'>
+                  <center>
+                    <button class='btn btn-primary' style='margin-left: 8px' style='margin-right: 15px;'><i class='fa fa-search'></i></button>
+                    <a class='btn btn-primary' style='margin-left: 8px' style='margin-right: 10px;' href='alterarTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a>
+                    <button class='btn btn-danger' style='margin-left: 8px' style='margin-right: 10px;'><a class='fa fa-trash' href='../php/excluirTarefa.php?id=".$linha['id']."'></a></button>
+                  </center>
+                  </td>
             </tr>"; 
 }
 		echo"
