@@ -28,8 +28,8 @@ foreach($resultado as $linha){
         echo"
 			<tr style='text-align:center;'>
                 <td style='white-space: nowrap; text-align:left;'>".$linha['titulo']."</td>
-                <td style='white-space: nowrap;'>".$linha['h_inicio']."<i class='fa fa-clock'></td>
-                <td style='white-space: nowrap;'>".$linha['h_fim']."<i class='fa fa-clock'></td>
+                <td style='white-space: nowrap;'>".$linha['h_inicio']."<i class='fa fa-clock' style='padding-left: 10px;'></td>
+                <td style='white-space: nowrap;'>".$linha['h_fim']."<i class='fa fa-clock' style='padding-left: 10px;'></td>
                 ";
                 
                 switch ($linha['nemotecnico']) {
