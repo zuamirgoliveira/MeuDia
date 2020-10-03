@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php session_start(); ?>
-	<title>Cadastrar Tarefas</title>
+	
+<title>Cadastrar Tipo Tarefas</title>
+
 <?php include '../import/registrarTarefa.html';?>	
+
 </head>
 <body>
+
+<?php session_start();?>
 <?php include 'menu.php';?>
 
 <!-- Pag -->
