@@ -33,7 +33,7 @@ $stmt = $conexao->query("
 		<div class='form-group'>
 		<label class='col-md-4 control-label' for='titulo'>Título</label>  
 			<div class='col-md-4'>
-				<input id='titulo' name='titulo' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números.' placeholder='' value='".$linha['titulo']."' class='form-control input-md' required=''>
+				<input id='titulo' name='titulo' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números.' placeholder='' value='".$linha['titulo']."' class='form-control input-md' maxlength='30' required=''>
 			</div>
 		</div>
 
@@ -41,7 +41,7 @@ $stmt = $conexao->query("
 		<div class='form-group'>
 		<label class='col-md-4 control-label' for='subtitulo'>Subtitulo</label>  
 			<div class='col-md-4'>
-				<input id='subtitulo' name='subtitulo' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números.' placeholder='' value='".$linha['subtitulo']."' class='form-control input-md' required=''>
+				<input id='subtitulo' name='subtitulo' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números.' placeholder='' value='".$linha['subtitulo']."' class='form-control input-md' maxlength='50' required=''>
 			</div>
 		</div>
 
@@ -49,7 +49,7 @@ $stmt = $conexao->query("
 		<div class='form-group'>
 		<label class='col-md-4 control-label' for='descricao'>descricao</label>
 			<div class='col-md-4'>                     
-				<textarea class='form-control' id='descricao' name='descricao'>".$linha['descricao']."</textarea>
+				<textarea class='form-control' id='descricao' name='descricao' maxlength='30'>".$linha['descricao']."</textarea>
 			</div>
 		</div>
 
