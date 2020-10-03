@@ -18,7 +18,8 @@
 <!-- Pag -->
 	<main class="page-content">
 		<div class="container-fluid">
-
+		
+			<?php include '../php/erroValidaCadastrarTipoTarefa.php';?>	
 			<?php include '../php/validaCadastrarTipoTarefa.php';?>	
 
 	</main>

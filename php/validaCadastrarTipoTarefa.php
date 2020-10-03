@@ -6,7 +6,7 @@ echo"<form class='form-horizontal' action='../php/cadastrarTipoTarefa.php' metho
 <div class='form-group'>
 	<label class='col-md-4 control-label' for='titulo'>Tipo de Tarefa</label>  
 	<div class='col-md-4'>
-		<input id='descricao' name='descricao' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números.' placeholder='' class='form-control input-md' required=''>
+		<input id='descricao' name='descricao' type='text' pattern='^[a-z A-Z 0-9 Á-ú]+$' title='Apenas letras e números' placeholder='' class='form-control input-md' maxlength='30' required=''>
 	</div>
 </div>
 
