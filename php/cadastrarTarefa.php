@@ -27,12 +27,9 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 			preg_match('/^[a-z A-Z 0-9]+$/', $prioridade) == 1) {
 		
 			$stmt = $conexao->query("
-								SELECT
-								  * 
-								FROM
-								  usuario 
-								WHERE
-								  id = '$idUsuario'");						  
+								SELECT *
+                  FROM usuario 
+								 WHERE id = '$idUsuario'");						  
 			$contagem = $stmt->rowCount();
 			
 			if($contagem == 1){
@@ -42,9 +39,11 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 				foreach($resultado as $linha){
 
 					if(is_null($linha["h_sono_inicio"]) and is_null($linha["h_sono_fim"]) ){
-
-						// redirecionar para pag de perfil, completar algumas informações
-
+						// redirecionar para pag para alterar perfil
+							header("Location: ../web/alterarPerfil.php");
+				}elseif(($linha["h_sono_inicio"] == '00:00:00') and ($linha["h_sono_fim"] == '00:00:00') ){
+						// redirecionar para pag para alterar perfil
+							header("Location: ../web/alterarPerfil.php");
 					}else{
 								$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim,tipo_tarefa,prioridade) values (?,?,?,?,?,?,?,?)");
 
@@ -58,7 +57,6 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 								$stmt -> bindParam(8,$prioridade);
 
 								$stmt->execute();
-								//$idTarefa = $conexao->lastInsertId();
 
 								header("Location: ../web/tarefas.php");
 					}
@@ -74,5 +72,4 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 }catch(PDOException $e){
 echo 'ERROR: ' . $e->getMessage();
 }
-
 ?>
