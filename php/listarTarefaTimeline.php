@@ -28,6 +28,7 @@ $stmt = $conexao->query("
 							ON p.id = t.prioridade 
 						WHERE
 						  usuario = '$idUsuario'
+						  and data_tarefa = CURRENT_DATE()
 						ORDER BY
 						  t.h_inicio ASC");
 $contagem = $stmt->rowCount();
