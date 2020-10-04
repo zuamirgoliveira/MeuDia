@@ -16,7 +16,7 @@ $tipotarefa =$_POST['tipotarefa'];
 $prioridade =$_POST['prioridade'];
 
 
-$stmt = $conexao->query("select h_estudo_inicio,h_estudo_fim,h_sono_inicio,h_sono_fim,h_trabalho_inicio,h_trabalho_fim,h_lazer_inicio,h_lazer_fim from usuario where id='$idUsuario'");
+$stmt = $conexao->query("select h_sono_inicio,h_sono_fim from usuario where id='$idUsuario'");
 		$contagem = $stmt->rowCount();
 		if($contagem == 1){
 
@@ -26,7 +26,14 @@ $stmt = $conexao->query("select h_estudo_inicio,h_estudo_fim,h_sono_inicio,h_son
 
 				if(is_null($linha["h_sono_inicio"]) and is_null($linha["h_sono_fim"]) ){
 
-						// redirecionar para pag de perfil, completar algumas informações
+						// redirecionar para pag para alterar perfil
+							header("Location: ../web/alterarPerfil.php");
+				
+				
+				}elseif(($linha["h_sono_inicio"] == '00:00:00') and ($linha["h_sono_fim"] == '00:00:00') ){
+
+						// redirecionar para pag para alterar perfil
+							header("Location: ../web/alterarPerfil.php");
 
 				}else{
 
