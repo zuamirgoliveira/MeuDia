@@ -20,9 +20,9 @@ if (!empty($descricao) && !empty($h_inicio) && !empty($h_fim)) {
 
 			$stmt = $conexao->prepare("
 									INSERT INTO
-									   tipo_tarefa(usuario, descricao, h_inicio, h_fim) 
+									   tipo_tarefa (usuario, descricao, h_inicio, h_fim) 
 									VALUES
-									   (?,?,?,?)");
+									   (?, ?, ?, ?, '0')");
 
 			$stmt -> bindParam(1,$idUsuario);
 			$stmt -> bindParam(2,$descricao);
@@ -30,8 +30,6 @@ if (!empty($descricao) && !empty($h_inicio) && !empty($h_fim)) {
 			$stmt -> bindParam(4,$h_fim);
 			
 			$stmt->execute();
-			
-			//$idTarefa = $conexao->lastInsertId();
 			
 			header("Location: ../web/registrarTipoTarefa.php");
 		}else{
