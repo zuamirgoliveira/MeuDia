@@ -2,13 +2,15 @@
 <html>
 <head>
 
-<?php session_start(); ?>
 <title>Alterar Tipo de Tarefa</title>
-<?php include '../import/tipoTarefas.html';?>	
+
+<?php include '../import/alterarTipoTarefas.html';?>	
+
 
 </head>
 <body>
 
+<?php session_start(); ?>
 <?php include 'menu.php';?>
 
 <!-- Pag -->

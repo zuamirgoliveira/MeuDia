@@ -5,6 +5,7 @@ include 'conexao.php';
 $idUsuario = $_SESSION['idusuario'];
 $idTipoTarefa = $_GET['id'];
 $descricao =$_POST['descricao'];
+
 $h_inicio =$_POST['h_inicio'];
 $h_fim =$_POST['h_fim'];
 $tamanhoDesc = strlen($descricao);
@@ -47,10 +48,5 @@ header("Location: ../web/alterarTipoTarefa.php?erroAlterarTarefa=true&id=".$idTi
 
 
 }
-
-
-
-
-
 
  ?>
