@@ -1,3 +1,4 @@
+
 <?php 
 
 include 'conexao.php';
@@ -45,7 +46,7 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 						// redirecionar para pag para alterar perfil
 							header("Location: ../web/alterarPerfil.php");
 					}else{
-								$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim,tipo_tarefa,prioridade) values (?,?,?,?,?,?,?,?)");
+								$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim,tipo_tarefa,prioridade,data_tarefa) values (?,?,?,?,?,?,?,?,CURRENT_DATE())");
 
 								$stmt -> bindParam(1,$idUsuario);
 								$stmt -> bindParam(2,$titulo);
@@ -73,3 +74,4 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 echo 'ERROR: ' . $e->getMessage();
 }
 ?>
+
