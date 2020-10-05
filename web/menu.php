@@ -1,4 +1,5 @@
-<?php include '../import/menu.html'; ?>
+<?php include '../php/verificaUsuario.php';?> 
+<?php include '../import/menu.html';?>
 
 <div class="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
