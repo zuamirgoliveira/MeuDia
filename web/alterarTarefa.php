@@ -3,7 +3,6 @@
 <head>
 
 <?php session_start();?>
-
 <?php include '../import/alterarTarefa.html';?>
 
 <title>Alterar Tarefa</title>
@@ -22,5 +21,6 @@
 			
 		</main>
 	</div>
+
 </body>
 </html>

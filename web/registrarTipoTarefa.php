@@ -2,6 +2,7 @@
 <html>
 <head>
 
+
 <?php session_start(); ?>
 
 <title>Cadastrar Tipo Tarefa</title>
@@ -11,7 +12,6 @@
 </head>
 <body>
 
-<!-- Agora vai xD -->
 
 <?php include 'menu.php';?>
 

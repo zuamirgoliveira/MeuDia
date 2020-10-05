@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<?php session_start(); ?>
+<?php session_start();?>
 	
 <title>Timeline</title>
 
@@ -17,14 +17,14 @@
 
 <!-- Pag -->
 <main class="page-content">
-				<div class="container-fluid">						
-					<?php include '../php/listarTarefaTimeline.php'; ?>
-					</ul>
+					<div class="container-fluid">						
+						<?php include '../php/listarTarefaTimeline.php'; ?>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>		
-</div>
+		</div>		
+	</div>
 </main>
 
 <!-- page-content" -->
