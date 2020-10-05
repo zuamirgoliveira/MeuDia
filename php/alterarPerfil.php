@@ -1,3 +1,4 @@
+
 <?php 
 include 'conexao.php';
 
@@ -10,11 +11,14 @@ $stmt = $conexao->query("select * from usuario where id='$idUsuario'");
 		$resultado = $stmt->fetchAll();
 
 		foreach($resultado as $linha){
-        
+     if(($linha["h_sono_inicio"] == '00:00:00') and ($linha["h_sono_fim"] == '00:00:00') ){	
+		echo "<div class='alert alert-warning alert-dismissible'>								
+		            <strong>Atenção!</strong> Preencha Seu Horário Inicial e Final de Descanço para Poder <strong> Cadastrar uma Tarefa </strong>. 
+		      </div>";
+	    }
 		echo"
 <form class='form-horizontal' action='../php/submitPerfil.php' method='POST'>
 <fieldset>
-
 <!-- nome input-->
 	<div class='form-group'>
 		<label class='col-md-4 control-label' for='nome'>Nome</label>  
@@ -22,7 +26,6 @@ $stmt = $conexao->query("select * from usuario where id='$idUsuario'");
 		<input id='nome' name='nome' type='text' placeholder='' value='".$linha['nome']."' class='form-control input-md' required=''>
 	</div>
 </div>
-
 <!-- Select sexo -->
 <div class='form-group'>
 	<label class='col-md-4 control-label' for='sexo'>Sexo</label>
@@ -44,7 +47,6 @@ $stmt = $conexao->query("select * from usuario where id='$idUsuario'");
 		</select>
 	</div>
 </div>
-
 <!-- hsonoinicio input-->
 <div class='form-group'>
 	<label class='col-md-4 control-label' for='hsonoinicio'>Horário de descanço (Início)</label>  
@@ -52,7 +54,6 @@ $stmt = $conexao->query("select * from usuario where id='$idUsuario'");
 		<input id='hsonoinicio' name='hsonoinicio' type='time' placeholder='' value='".$linha['h_sono_inicio']."' class='form-control input-md'>
 	</div>
 </div>
-
 <!-- hsonofim input-->
 <div class='form-group'>
 	<label class='col-md-4 control-label' for='hsonofim'>Horário de descanço (Fim)</label>  
@@ -60,7 +61,6 @@ $stmt = $conexao->query("select * from usuario where id='$idUsuario'");
 		<input id='hsonofim' name='hsonofim' type='time' placeholder='' value='".$linha['h_sono_fim']."' class='form-control input-md'>
 	</div>
 </div>
-
 <!-- Button -->
 <div class='form-group'>
 	<label class='col-md-4 control-label' for='confirmar'></label>
@@ -70,6 +70,6 @@ $stmt = $conexao->query("select * from usuario where id='$idUsuario'");
 </div>
 </fieldset>
 </form>";
-			}
+		}
 	}
 ?>
