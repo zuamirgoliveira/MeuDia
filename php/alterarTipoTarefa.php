@@ -6,7 +6,7 @@ $idTipoTarefa = $_GET['id'];
 
 $stmt = $conexao->query("
 						SELECT
-						  * 
+						  * 	
 						FROM
 						  tipo_tarefa 
 						WHERE
