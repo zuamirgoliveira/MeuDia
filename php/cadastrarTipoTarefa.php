@@ -15,12 +15,12 @@ if (!empty($descricao) && !empty($h_inicio) && !empty($h_fim)) {
 		header("Location: ../web/registrarTipoTarefa.php?erroCadastrarTipoTarefaStr=true");
 	}else{
 		if (preg_match('/^[a-z A-Z 0-9]+$/', $descricao) == 1 && 
-			preg_match('/^[0-9]+$/', $h_inicio) == 1 && 
-			preg_match('/^[0-9]+$/', $h_fim) == 1) {
+			preg_match('/[0-9]$/', $h_inicio) == 1 && 
+			preg_match('/[0-9]$/', $h_fim) == 1) {
 
 			$stmt = $conexao->prepare("
 									INSERT INTO
-									   tipo_tarefa (usuario, descricao, h_inicio, h_fim) 
+									   tipo_tarefa (usuario, descricao, h_inicio, h_fim, liga_desliga) 
 									VALUES
 									   (?, ?, ?, ?, '0')");
 
@@ -31,7 +31,7 @@ if (!empty($descricao) && !empty($h_inicio) && !empty($h_fim)) {
 			
 			$stmt->execute();
 			
-			header("Location: ../web/registrarTipoTarefa.php");
+			header("Location: ../web/tipoTarefas.php");
 		}else{
 			header("Location: ../web/registrarTipoTarefa.php?erroCadastrarTipoTarefaNoStr=true");
 		}
