@@ -3,7 +3,7 @@
 <head>
 
 <title>MeuDia - Registrar </title>
-<?php include '../php/verificaUsuario.php';?>
+
 <?php include '../import/login.html';?>
 
 </head>
