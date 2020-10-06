@@ -4,20 +4,25 @@ include 'conexao.php';
 $idUsuario = $_SESSION['idusuario'];
 $idTarefa = $_GET['id'];
 
-$stmt = $conexao->query("
-						SELECT
-						  t.id, t.titulo, t.descricao, t.h_inicio, t.h_fim, t.subtitulo, p.descricao AS prioridade, p.nemotecnico AS nemotecnico 
-						FROM
-						  tarefa t 
-						  INNER JOIN
-							prioridade p 
-							ON p.id = t.prioridade 
-						WHERE
-						  usuario = '$idUsuario'
-						AND
-						  t.id = '$idTarefa'
-						  "
-						);
+$stmt = $conexao->query("SELECT tar.id,
+								tar.titulo,
+								tar.subtitulo,
+								tar.descricao,
+								tar.h_inicio,
+								tar.h_fim,
+								tar.tipo_tarefa AS id_tipo_tarefa,
+								tip.descricao AS tipo_tarefa,
+								pri.id AS id_prioridade,
+								pri.descricao AS prioridade,
+								pri.nemotecnico 
+						   FROM tarefa tar,
+								prioridade pri,
+								tipo_tarefa tip
+					      WHERE pri.id = tar.prioridade
+							AND tar.tipo_tarefa = tip.id
+							AND tar.usuario = '$idUsuario'
+							AND tar.id = '$idTarefa'");
+
     $contagem = $stmt->rowCount();
     if($contagem == 1){
 
