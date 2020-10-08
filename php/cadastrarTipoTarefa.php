@@ -14,7 +14,7 @@ if (!empty($descricao) && !empty($h_inicio) && !empty($h_fim)) {
 	if (strlen($descricao) > 30) {
 		header("Location: ../web/registrarTipoTarefa.php?erroCadastrarTipoTarefaStr=true");
 	}else{
-		if (preg_match('/^[a-z A-Z 0-9]+$/', $descricao) == 1 && 
+		if (preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $descricao) == 1 && 
 			preg_match('/[0-9]$/', $h_inicio) == 1 && 
 			preg_match('/[0-9]$/', $h_fim) == 1) {
 
