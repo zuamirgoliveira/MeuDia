@@ -25,6 +25,7 @@
 			</div>
 		</div>		
 	</div>
+	<?php include '../php/graficoTipoTarefas.php'; ?>
 </main>
 
 <!-- page-content" -->
