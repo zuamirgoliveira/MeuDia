@@ -16,7 +16,22 @@ include 'conexao.php';
 				<tbody>";
 $idUsuario = $_SESSION['idusuario'];
 
-$stmt = $conexao->query("select t.id,t.titulo,t.descricao,t.h_inicio,t.h_fim,p.descricao as prioridade,p.nemotecnico as nemotecnico from tarefa t inner join  prioridade  p  on p.id = t.prioridade where usuario='$idUsuario'");
+$stmt = $conexao->query("SELECT tar.id,
+                                tar.titulo,
+                                tar.descricao,
+                                tar.subtitulo,
+                                tar.h_inicio,
+                                tar.h_fim,
+                                tar.data_tarefa,
+                                tip.descricao AS tipo_tarefa,
+                                pri.descricao AS prioridade,
+                                pri.nemotecnico
+                           FROM tarefa tar,
+                                prioridade  pri,
+                                tipo_tarefa  tip
+                          WHERE pri.id = tar.prioridade
+                            AND tip.id = tar.tipo_tarefa
+                            AND tar.usuario = '$idUsuario'");
 $contagem = $stmt->rowCount();
 
 if($contagem >= 1){
@@ -70,26 +85,29 @@ foreach($resultado as $linha){
             <div class='modal-dialog modal-dialog-centered' role='document'>
               <div class='modal-content'>
                 <div id='modalHeader' class='modal-header'>
+                  <label for='titulo' style='font-size: 24px; font-weight: bold;' id='tipoTarefa'></label>
                   <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                     <span aria-hidden='true'>&times;</span>
                   </button>
                 </div>
                 <div class='modal-body'>
                   <div>
-                    <label for='titulo'>Título</label>
+                    <label for='titulo' style='font-weight: bold;'>Título</label>
                     <input type='titulo' class='form-control' id='titulo' readonly>
-                    <label for='descricao' style='padding-top: 10px;'>Descrição</label>
+                    <label for='subtitulo' style='font-weight: bold; padding-top: 10px;'>Subtítulo</label>
+                    <input type='subtitulo' class='form-control' id='subtitulo' readonly>
+                    <label for='descricao' style='font-weight: bold; padding-top: 10px;'>Descrição</label>
                     <div class='input-group'>
                     <textarea class='form-control' id='descricao' readonly></textarea>
                     </div>
                     <div>
                     <div style='display: flex;'>
                       <div style='width: 50%; padding-top: 10px; margin: 10px;'>
-                        <label for='hInicio' style='display: block; text-align: center;'>Hora Início</label>
+                        <label for='hInicio' style='font-weight: bold; display: block; text-align: center;'>Hora Início</label>
                         <input type='hInicio' class='form-control' id='hInicio' style='text-align: center;' readonly>
                       </div>
                       <div style='width: 50%; padding-top: 10px; margin: 10px;'>
-                        <label for='hFim' style='display: block; text-align: center;'>Hora Fim</label>
+                        <label for='hFim' style='font-weight: bold; display: block; text-align: center;'>Hora Fim</label>
                         <input type='hFim' class='form-control' id='hFim' style='text-align: center;' readonly>
                       </div>
                     </div>

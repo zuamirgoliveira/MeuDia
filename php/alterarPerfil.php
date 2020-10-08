@@ -16,6 +16,11 @@ $stmt = $conexao->query("select * from usuario where id='$idUsuario'");
 		            <strong>Atenção!</strong> Preencha Seu Horário Inicial e Final de Descanço para Poder <strong> Cadastrar uma Tarefa </strong>. 
 		      </div>";
 	    }
+     elseif(is_null($linha["h_sono_inicio"]) and is_null($linha["h_sono_fim"])){	
+		echo "<div class='alert alert-warning alert-dismissible'>								
+		            <strong>Atenção!</strong> Preencha Seu Horário Inicial e Final de Descanço para Poder <strong> Cadastrar uma Tarefa </strong>. 
+		      </div>";
+	    }
 		echo"
 <form class='form-horizontal' action='../php/submitPerfil.php' method='POST'>
 <fieldset>

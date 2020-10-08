@@ -19,13 +19,13 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 	if (strlen($titulo) > 30 && strlen($subtitulo) > 50 && strlen($descricao) > 300) {
 		header("Location: ../web/alterarTarefa.php?erroAlterarTarefaStr=true&id=".$idTarefa);
 	}else{
-		if (preg_match('/^[a-zA-Z0-9]+/', $titulo) == 1 && 
-			preg_match('/^[a-zA-Z0-9]+/', $subtitulo) == 1 && 
-			preg_match('/^[a-zA-Z0-9]+/', $descricao) == 1 && 
-			preg_match('/^[0-9]+/', $hinicio) == 1 && 
-			preg_match('/^[0-9]+/', $hfim) == 1 && 
-			preg_match('/^[a-zA-Z0-9]+/', $tipotarefa) == 1 && 
-			preg_match('/^[a-zA-Z0-9]+/', $prioridade) == 1) {
+		if (preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $titulo) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $subtitulo) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $descricao) == 1 && 
+			preg_match('/[0-9]$/', $hinicio) == 1 && 
+			preg_match('/[0-9]$/', $hfim) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $tipotarefa) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $prioridade) == 1) {
 				
 			$stmt = $conexao->prepare("	
 										UPDATE

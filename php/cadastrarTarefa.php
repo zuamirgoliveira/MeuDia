@@ -1,5 +1,3 @@
-
-
 <?php 
 
 include 'conexao.php';
@@ -20,18 +18,18 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 	if (strlen($titulo) > 30 && strlen($subtitulo) > 50 && strlen($descricao) > 300) {
 		header("Location: ../web/registrarTarefa.php?erroCadastrarTarefaStr=true");
 	}else{
-		if (preg_match('/^[a-z A-Z 0-9]+$/', $titulo) == 1 && 
-			preg_match('/^[a-z A-Z 0-9]+$/', $subtitulo) == 1 && 
-			preg_match('/^[a-z A-Z 0-9]+$/', $descricao) == 1 && 
-			preg_match('/^[0-9]+$/', $hinicio) == 1 && 
-			preg_match('/^[0-9]+$/', $hfim) == 1 && 
-			preg_match('/^[a-z A-Z 0-9]+$/', $tipotarefa) == 1 && 
-			preg_match('/^[a-z A-Z 0-9]+$/', $prioridade) == 1) {
+		if (preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $titulo) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $subtitulo) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $descricao) == 1 && 
+			preg_match('/[0-9]$/', $hinicio) == 1 && 
+			preg_match('/[0-9]$/', $hfim) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $tipotarefa) == 1 && 
+			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $prioridade) == 1) {
 		
 			$stmt = $conexao->query("
-								SELECT *
-                  FROM usuario 
-								 WHERE id = '$idUsuario'");						  
+									SELECT *
+									FROM usuario 
+									WHERE id = '$idUsuario'");						  
 			$contagem = $stmt->rowCount();
 			
 			if($contagem == 1){
@@ -41,26 +39,26 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 				foreach($resultado as $linha){
 
 					if(is_null($linha["h_sono_inicio"]) and is_null($linha["h_sono_fim"]) ){
-						// redirecionar para pag para alterar perfil
+							// Redirecionar para página de alterar perfil
 							header("Location: ../web/alterarPerfil.php");
-				}elseif(($linha["h_sono_inicio"] == '00:00:00') and ($linha["h_sono_fim"] == '00:00:00') ){
-						// redirecionar para pag para alterar perfil
+					}elseif(($linha["h_sono_inicio"] == '00:00:00') and ($linha["h_sono_fim"] == '00:00:00') ){
+							// Redirecionar para página de alterar perfil
 							header("Location: ../web/alterarPerfil.php");
 					}else{
-								$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim,tipo_tarefa,prioridade,data_tarefa) values (?,?,?,?,?,?,?,?,CURRENT_DATE())");
+							$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim,tipo_tarefa,prioridade,data_tarefa) values (?,?,?,?,?,?,?,?,CURRENT_DATE())");
 
-								$stmt -> bindParam(1,$idUsuario);
-								$stmt -> bindParam(2,$titulo);
-								$stmt -> bindParam(3,$subtitulo);
-								$stmt -> bindParam(4,$descricao);
-								$stmt -> bindParam(5,$hinicio);
-								$stmt -> bindParam(6,$hfim);
-								$stmt -> bindParam(7,$tipotarefa);
-								$stmt -> bindParam(8,$prioridade);
+							$stmt -> bindParam(1,$idUsuario);
+							$stmt -> bindParam(2,$titulo);
+							$stmt -> bindParam(3,$subtitulo);
+							$stmt -> bindParam(4,$descricao);
+							$stmt -> bindParam(5,$hinicio);
+							$stmt -> bindParam(6,$hfim);
+							$stmt -> bindParam(7,$tipotarefa);
+							$stmt -> bindParam(8,$prioridade);
 
-								$stmt->execute();
+							$stmt->execute();
 
-								header("Location: ../web/tarefas.php");
+							header("Location: ../web/tarefas.php");
 					}
 				}
 			}
@@ -75,4 +73,3 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinic
 echo 'ERROR: ' . $e->getMessage();
 }
 ?>
-
