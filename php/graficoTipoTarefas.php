@@ -4,7 +4,7 @@ $sql = "SELECT tip.descricao ,COUNT(tar.id)FROM tarefa tar,tipo_tarefa tip WHERE
 
 $stmt = $conexao->query($sql);
 $contagem = $stmt->rowCount();
-if($contagem > 1){
+if($contagem >= 1){
 $resultado = $stmt->fetchAll();
 
 
