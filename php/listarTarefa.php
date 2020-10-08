@@ -85,7 +85,7 @@ foreach($resultado as $linha){
             <div class='modal-dialog modal-dialog-centered' role='document'>
               <div class='modal-content'>
                 <div id='modalHeader' class='modal-header'>
-                  <label for='titulo' style='font-size: 24px; font-weight: bold;' id='tipoTarefa'>Desenvolver MeuDia</label>
+                  <label for='titulo' style='font-size: 24px; font-weight: bold;' id='tipoTarefa'></label>
                   <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
                     <span aria-hidden='true'>&times;</span>
                   </button>

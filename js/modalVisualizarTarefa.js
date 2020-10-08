@@ -9,7 +9,7 @@ $('#myModal').on('shown.bs.modal', function () {
     $('#hInicio').val(json.h_inicio);
     $('#hFim').val(json.h_fim);
     $('#dataTarefa').val(json.data_tarefa);
-    $('#tipoTarefa').val(json.tipo_tarefa);
+    $('#tipoTarefa').text(json.tipo_tarefa);
 
     switch (json.nemotecnico) {
     case 'CRITICA':
