@@ -17,7 +17,7 @@ include 'conexao.php';
 				$_SESSION['login'] =$linha["login"];
 	    		$_SESSION['idusuario'] = $linha["id"];
 	    		$_SESSION['nomeUsuario'] = $linha["nome"];
-	    		header('Location: ../web/tipoTarefas.php');
+	    		header('Location: ../web/timeline.php');
 			}	
 			
 		}else{
