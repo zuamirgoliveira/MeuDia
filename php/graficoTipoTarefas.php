@@ -1,10 +1,12 @@
 <?php include '../php/conexao.php';
-
-$sql = "SELECT tip.descricao ,COUNT(tar.id)FROM tarefa tar,tipo_tarefa tip WHERE tar.tipo_tarefa = tip.id and tar.data_tarefa = CURDATE() GROUP BY tip.descricao";
+$idUsuario = $_SESSION['idusuario'];
+$sql = "SELECT tip.descricao ,COUNT(tar.id)FROM tarefa tar,tipo_tarefa tip WHERE tar.tipo_tarefa = tip.id and tar.data_tarefa = CURDATE() and tar.usuario = '$idUsuario' GROUP BY tip.descricao";
 
 $stmt = $conexao->query($sql);
-
+$contagem = $stmt->rowCount();
+if($contagem > 1){
 $resultado = $stmt->fetchAll();
+
 
 
 
@@ -64,6 +66,6 @@ foreach ($resultado as $value) {
     </script>
 
 
-    <div id="donutchart" style="width: 900px; height: 500px;"></div>
+    <center><div id="donutchart" style="width: 900px; height: 500px;"></div></center>
 
-    <div id="donutchart1" style="width: 900px; height: 500px;"></div>
+    <?php } ?>
