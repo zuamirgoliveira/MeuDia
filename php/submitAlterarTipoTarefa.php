@@ -16,7 +16,7 @@ if(!empty($descricao) && !empty($h_fim) && !empty($h_inicio)){
 	header("Location: ../web/alterarTipoTarefa.php?erroAlterarTarefaStr=true&id=".$idTipoTarefa);
 	}else{
 
-		if(!preg_match('/^[a-z A-Z 0-9]+$/', $descricao) == 1){
+		if(!preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $descricao) == 1){
 
 			header("Location: ../web/alterarTipoTarefa.php?erroAlterarTarefaNoStr=true&id=".$idTipoTarefa);
 
