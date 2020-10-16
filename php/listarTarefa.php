@@ -49,16 +49,16 @@ foreach($resultado as $linha){
                 
                 switch ($linha['nemotecnico']) {
                   case "CRITICA":
-                    echo "<td class='bg-danger'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #D97373; text-color: #343A40;'>".$linha['prioridade']."</td>";
                     break;
                   case "ALTA":
-                    echo "<td class='bg-warning'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #F0EE8D; color: #343A40;'>".$linha['prioridade']."</td>";
                     break;
                   case "MEDIA":
-                    echo "<td class='bg-primary'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #5AA0CC;'>".$linha['prioridade']."</td>";
                     break;
                   case "BAIXA":
-                    echo "<td class='bg-success'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #4CD9AC;'>".$linha['prioridade']."</td>";
 					break; 
 					
                   default:
