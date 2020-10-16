@@ -8,7 +8,7 @@
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <a href="">MeuDia - Agenda Virtual</a>
+        <a href=""><img src="../css/img/logo-meudia-sol.png" alt="Meudia" width="30" height="30"> Meu dia</a>
         <div id="close-sidebar">
           <i class="fas fa-times"></i>
         </div>
