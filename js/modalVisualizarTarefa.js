@@ -13,16 +13,16 @@ $('#myModal').on('shown.bs.modal', function () {
 
     switch (json.nemotecnico) {
     case 'CRITICA':
-      $("#modalHeader").removeClass().addClass('modal-header btn-danger');
+      $("#modalHeader").css("background-color", "#D97373");
       break;
     case 'ALTA':
-      $("#modalHeader").removeClass().addClass('modal-header btn-warning');
+      $("#modalHeader").css("background-color", "#F0EE8D");
       break;
     case 'MEDIA':
-      $("#modalHeader").removeClass().addClass('modal-header btn-primary');
+      $("#modalHeader").css("background-color", "#5AA0CC");
       break;
     case 'BAIXA':
-      $("#modalHeader").removeClass().addClass('modal-header btn-success');
+      $("#modalHeader").css("background-color", "#4CD9AC");
       break;
   }
     $('#myModal').modal('show');

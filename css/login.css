@@ -34,7 +34,7 @@ body {
     background-size: cover;
     background-position: 50% 50%;
     /*background-image: url('img/background.png');*/
-    background-color: #4F4F4F;
+    background-color: #ffff;
     background-repeat:repeat;
   }
   .form-signin {

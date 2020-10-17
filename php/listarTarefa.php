@@ -10,7 +10,7 @@ include 'conexao.php';
 						<th>Horário Fim</th>
 						<th>Prioridade</th>
 						<th>Ações</th>
-						<a class='btn btn-primary' style='margin-left:95%' href='../web/registrarTarefa.php'><i class='fa fa-plus'></i></a>
+            <a class='btn btn-primary' style='margin-left:95%; background: #5AA0CC;' href='../web/registrarTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a>
 					</tr>					
 				</thead>
 				<tbody>";
@@ -43,22 +43,22 @@ foreach($resultado as $linha){
         echo"
 			<tr style='text-align:center;'>
                 <td style='white-space: nowrap; text-align:left;'>".$linha['titulo']."</td>
-                <td style='white-space: nowrap;'>".$linha['h_inicio']."<i class='fa fa-clock' style='padding-left: 10px;'></td>
-                <td style='white-space: nowrap;'>".$linha['h_fim']."<i class='fa fa-clock' style='padding-left: 10px;'></td>
+                <td style='white-space: nowrap;'>".$linha['h_inicio']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; width: 15px; height: 15px;'></td>
+                <td style='white-space: nowrap;'>".$linha['h_fim']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; margin-bottom: 3px; width: 15px; height: 15px;'></td>
                 ";
                 
                 switch ($linha['nemotecnico']) {
                   case "CRITICA":
-                    echo "<td class='bg-danger'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #D97373; text-color: #343A40;'>".$linha['prioridade']."</td>";
                     break;
                   case "ALTA":
-                    echo "<td class='bg-warning'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #F0EE8D; color: #343A40;'>".$linha['prioridade']."</td>";
                     break;
                   case "MEDIA":
-                    echo "<td class='bg-primary'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #5AA0CC;'>".$linha['prioridade']."</td>";
                     break;
                   case "BAIXA":
-                    echo "<td class='bg-success'><strong>".$linha['prioridade']."</strong></td>";
+                    echo "<td style='background: #4CD9AC;'>".$linha['prioridade']."</td>";
 					break; 
 					
                   default:
@@ -69,9 +69,9 @@ foreach($resultado as $linha){
                 echo"
                 <td style='white-space: nowrap;'>
                   <center>
-                    <button id='btModal' type='button' class='btn btn-primary' style='margin-left: 8px; margin-right: 15px;' onclick='openModal(".$linha['json'].")'><i class='fa fa-search'></i></button>
-                    <a class='btn btn-primary' style='margin-left: 8px, margin-right: 10px;' href='alterarTarefa.php?id=".$linha['id']."'><div class='fa fa-edit'></div></a>
-                    <button class='btn btn-danger' style='margin-left: 8px, margin-right: 10px;'><a class='fa fa-trash' href='../php/excluirTarefa.php?id=".$linha['id']."'></a></button>
+                    <a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-search.svg' style='width: 30px; height: 30px;'></a>
+                    <a href='alterarTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
+                    <a href='../php/excluirTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>
                   </center>
                   </td>
             </tr>"; 
