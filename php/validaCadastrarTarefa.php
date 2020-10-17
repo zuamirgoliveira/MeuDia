@@ -30,7 +30,7 @@ echo"<form class='form-horizontal' id='form' action='../php/cadastrarTarefa.php'
 <div class='form-group'>
 	<label class='col-md-4 control-label' for='hinicio'>Horário de Início</label>  
 	<div class='col-md-1'>
-		<input id='hinicio' name='hinicio' type='time' pattern='^[0-9]+$' title='Apenas números.' placeholder='' class='form-control input-md' required=''>
+		<input id='hinicio' name='hinicio' type='time' pattern='^[0-9]+$' title='Apenas números.' placeholder='' class='form-control input-md'>
 	</div>
 </div>
 

@@ -14,15 +14,13 @@ $hfim =$_POST['hfim'];
 $tipotarefa =$_POST['tipotarefa']; 
 $prioridade =$_POST['prioridade'];
 
-if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($hinicio) && !empty($hfim) && !empty($tipotarefa) && !empty($prioridade)) {
+if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($tipotarefa) && !empty($prioridade)) {
 	if (strlen($titulo) > 30 && strlen($subtitulo) > 50 && strlen($descricao) > 300) {
 		header("Location: ../web/registrarTarefa.php?erroCadastrarTarefaStr=true");
 	}else{
 		if (preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $titulo) == 1 && 
 			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $subtitulo) == 1 && 
 			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $descricao) == 1 && 
-			preg_match('/[0-9]$/', $hinicio) == 1 && 
-			preg_match('/[0-9]$/', $hfim) == 1 && 
 			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $tipotarefa) == 1 && 
 			preg_match('/^[a-z A-Z Á-ú 0-9]+$/', $prioridade) == 1) {
 		
