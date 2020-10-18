@@ -19,13 +19,6 @@
           <span class="user-name">
             <strong><?php echo $_SESSION['nomeUsuario']; ?></strong>
           </span>
-         
-          <span class="user-status">
-            <i class="fa fa-circle"></i>
-            <span>Online</span>
-          </span>
-        </div>
-      </div>
       
       <div class="sidebar-menu">
         <ul>
