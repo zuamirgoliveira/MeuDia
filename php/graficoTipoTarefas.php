@@ -66,6 +66,6 @@ foreach ($resultado as $value) {
     </script>
 
 
-    <center><div id="donutchart" style="width: 900px; height: 500px;"></div></center>
+    <center><div id="donutchart" style="width: 900px; height: 500px;" class="border shadow p-3 mb-5 bg-white rounded"></div></center>
 
     <?php } ?>
