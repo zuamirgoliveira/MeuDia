@@ -4,7 +4,7 @@ include 'conexao.php';
 echo "<div class='container timeline-completa'>
 
 <div class='row'>
-				<div class='col-md-12'>
+				<div class='col-md-12 border shadow p-3 mb-5 bg-white rounded'>
 					
 					<div style='display:inline-block;width:100%;overflow-y:auto;white-space:nowrap;'>
 					<ul class='timeline timeline-horizontal'>";
