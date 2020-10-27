@@ -6,8 +6,13 @@ $('#myModal').on('shown.bs.modal', function () {
     $('#titulo').val(json.titulo);
     $('#subtitulo').val(json.subtitulo);
     $('#descricao').val(json.descricao);
-    $('#hInicio').val(json.h_inicio);
-    $('#hFim').val(json.h_fim);
+    if(json.h_inicio != '') {
+      $('#hInicio').val(json.h_inicio);
+      $('#hFim').val(json.h_fim);
+    } else {
+      $('#hInicio').val('--:--');
+      $('#hFim').val('--:--');
+    }
     $('#dataTarefa').val(json.data_tarefa);
     $('#tipoTarefa').text(json.tipo_tarefa);
 

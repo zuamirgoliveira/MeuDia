@@ -42,10 +42,15 @@ foreach($resultado as $linha){
   $linha['json'] = json_encode($linha);        
         echo"
 			<tr style='text-align:center;'>
-                <td style='white-space: nowrap; text-align:left;'>".$linha['titulo']."</td>
-                <td style='white-space: nowrap;'>".$linha['h_inicio']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; width: 15px; height: 15px;'></td>
-                <td style='white-space: nowrap;'>".$linha['h_fim']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; margin-bottom: 3px; width: 15px; height: 15px;'></td>
-                ";
+                <td style='white-space: nowrap; text-align:left;'>".$linha['titulo']."</td>";
+                if ($linha['h_inicio'] != '') {
+                  echo"<td style='white-space: nowrap;'>".$linha['h_inicio']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; width: 15px; height: 15px;'></td>
+                  <td style='white-space: nowrap;'>".$linha['h_fim']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; margin-bottom: 3px; width: 15px; height: 15px;'></td>
+                  ";
+                } else {
+                  echo"<td>--:--</td>
+                  <td>--:--</td>";
+                }
                 
                 switch ($linha['nemotecnico']) {
                   case "CRITICA":

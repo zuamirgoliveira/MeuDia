@@ -17,14 +17,14 @@
 
 <div class="container">
 
-  <form class="form-signin" method="POST" action="../php/verificaLogin.php">
+  <form class="form-signin border shadow p-3 mb-5 bg-white rounded" method="POST" action="../php/verificaLogin.php">
 
     <!-- LOGO -->
-    <h1 class="form-signin-heading text-muted"><img src="../css/img/logo-meudia-login.png" style="height: 200px"></h1>
+    <h1 class="form-signin-heading text-muted"><img src="../css/img/logo-meudia-login.png" style="height: 150px"></h1>
     <!-- USUARIO -->
-    <input type="text" class="form-control" placeholder="Username" required="" autofocus="" name="username" id="username">
+    <input type="text" class="form-control username" placeholder="Username" required="" autofocus="" name="username" id="username">
     <!-- SENHA -->
-    <input type="password" class="form-control" placeholder="Password" required="" name="password" id="password">
+    <input type="password" class="form-control password" placeholder="Password" required="" name="password" id="password">
     <!-- LOGAR -->
     <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
     <center><a href="registrar.php">Criar nova conta</a></center>
@@ -33,10 +33,8 @@
 </div>
 
 
-<div class="container">
- <div></div>   
-
 </div>
+
 
 </body>
 </html>
