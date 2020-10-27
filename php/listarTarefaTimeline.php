@@ -1,14 +1,5 @@
 <?php
 include 'conexao.php';
-
-echo "<div class='container timeline-completa'>
-
-<div class='row'>
-				<div class='col-md-12 border shadow p-3 mb-5 bg-white rounded'>
-					
-					<div style='display:inline-block;width:100%;overflow-y:auto;white-space:nowrap;'>
-					<ul class='timeline timeline-horizontal'>";
-
 $idUsuario = $_SESSION['idusuario'];
 
 $stmt = $conexao->query("
@@ -37,6 +28,15 @@ ini_set('date.timezone', 'America/Recife');
 $tempo = date("H:i:s", time());
 
 if($contagem >= 1){
+echo "<div class='container timeline-completa'>
+
+<div class='row'>
+				<div class='col-md-12 border shadow p-3 mb-5 bg-white rounded'>
+					
+					<div style='display:inline-block;width:100%;overflow-y:auto;white-space:nowrap;'>
+					<ul class='timeline timeline-horizontal'>";
+
+
 
 $resultado = $stmt->fetchAll();
 
