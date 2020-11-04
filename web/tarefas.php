@@ -18,7 +18,7 @@ include '../import/tarefas.html';
 <main class="page-content">
     <div class="container-fluid">
 		<div class="container">
-			
+			<?php include '../php/erroTarefa.php'; ?>
 			<!--tabela-->
 			<?php include '../php/listarTarefa.php';?>
 		</div>
