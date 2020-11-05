@@ -20,6 +20,7 @@ include '../import/tarefas.html';
 <main class="page-content">
     <div class="container-fluid">
 		<div class="container">
+
 			<div class='col-md-5'></div>
 			<div class='col-md-7 float-left' ><form class='form-inline border shadow p-3 mb-5 bg-white rounded' method="POST" action="" id='formPesquisa' >
 				  <div class='form-group mx-sm-3 mb-2'> 
@@ -30,6 +31,9 @@ include '../import/tarefas.html';
 				  </div>
 				  <input type='submit' class='btn btn-primary mb-2' id='buscarTarefasPorData' >
 			</form></div>
+
+			<?php include '../php/erroTarefa.php'; ?>
+
 			<!--tabela-->
 			<div id="resultadoPesquisa" >
 			<table class='table table-striped border shadow p-3 mb-5 bg-white rounded' >
