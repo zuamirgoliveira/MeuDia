@@ -32,3 +32,10 @@ $('#myModal').on('shown.bs.modal', function () {
   }
     $('#myModal').modal('show');
   }
+
+  function confirmDelete(json) {
+    let flag = confirm('Tem certeza que deseja excluir a tarefa "' + json.titulo + '"?');
+    if (flag) {
+      location.href = "../php/excluirTarefa.php?id="+json.id;
+    }
+  }
