@@ -23,3 +23,10 @@ $('#myModal').on('shown.bs.modal', function () {
 
     $('#myModal').modal('show');
   }
+
+  function confirmDelete(json) {
+    let flag = confirm('Tem certeza que deseja excluir a tipo tarefa "' + json.descricao + '"?');
+    if (flag) {
+      location.href = "../php/excluirTipoTarefa.php?id="+json.id;
+    }
+  }
