@@ -1,27 +1,15 @@
 <?php
+header('content-type: text/html');
+session_start();
 include 'conexao.php';
 
-		echo"
 
-			<table class='table table-striped border shadow p-3 mb-5 bg-white rounded' id='resultado'>
-			    <thead>					
-					<tr class='bg-dark text-white' style='text-align:center'>
+$dataInicio = $_POST['dataInicio'];
+$dataFim = $_POST['dataFim'];
 
-						<th>Título</th>
-						<th>Horário Início</th>
-						<th>Horário Fim</th>
-						<th>Prioridade</th>
-						<th>Ações</th>
-            
-            <a class='btn btn-primary' style='margin-left:95%; background: #5AA0CC;' href='../web/registrarTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a>
-					</tr>					
-				</thead>
-				<tbody>";
-
+	
 $idUsuario = $_SESSION['idusuario'];
 
-  $_POST['dataInicio'] = null;
-  $_POST['dataFim']  = null;
 $sql = "SELECT tar.id,
                                 tar.titulo,
                                 tar.descricao,
@@ -37,8 +25,9 @@ $sql = "SELECT tar.id,
                                 tipo_tarefa  tip
                           WHERE pri.id = tar.prioridade
                             AND tip.id = tar.tipo_tarefa
-                            AND tar.usuario = ".$idUsuario;
-
+                            AND tar.usuario = '$idUsuario' 
+                            AND tar.data_tarefa >= '$dataInicio' 
+                            AND tar.data_tarefa <= '$dataFim'";
 
 
 $stmt = $conexao->query($sql);
@@ -47,9 +36,33 @@ $contagem = $stmt->rowCount();
 if($contagem >= 1){
 
 $resultado = $stmt->fetchAll();
+echo "<table class='table table-striped border shadow p-3 mb-5 bg-white rounded' >
+          <thead>         
+          <tr class='bg-dark text-white' style='text-align:center'>
 
+            <th>Títulos</th>
+            <th>Horário Início</th>
+            <th>Horário Fim</th>
+            <th>Prioridade</th>
+            <th>Ações</th>
+            
+            <a class='btn btn-primary' style='margin-left:95%; background: #5AA0CC;' href='../web/registrarTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a>
+          </tr>         
+        </thead>
+        
+        <tbody>";
 foreach($resultado as $linha){
-  $linha['json'] = json_encode($linha);        
+     $linha['json'] = json_encode($linha);     
+
+
+
+
+
+
+
+
+
+
         echo"
 			<tr style='text-align:center;'>
                 <td style='white-space: nowrap; text-align:left;'>".$linha['titulo']."</td>";
@@ -95,44 +108,23 @@ foreach($resultado as $linha){
 		</tbody>
         </table>";
     
-    echo" <!-- Modal -->
-          <div class='modal fade' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalTitle' aria-hidden='true'>
-            <div class='modal-dialog modal-dialog-centered' role='document'>
-              <div class='modal-content'>
-                <div id='modalHeader' class='modal-header'>
-                  <label for='titulo' style='font-size: 24px; font-weight: bold;' id='tipoTarefa'></label>
-                  <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                    <span aria-hidden='true'>&times;</span>
-                  </button>
-                </div>
-                <div class='modal-body'>
-                  <div>
-                    <label for='titulo' style='font-weight: bold;'>Título</label>
-                    <input type='titulo' class='form-control' id='titulo' readonly>
-                    <label for='subtitulo' style='font-weight: bold; padding-top: 10px;'>Subtítulo</label>
-                    <input type='subtitulo' class='form-control' id='subtitulo' readonly>
-                    <label for='descricao' style='font-weight: bold; padding-top: 10px;'>Descrição</label>
-                    <div class='input-group'>
-                    <textarea class='form-control' id='descricao' readonly></textarea>
-                    </div>
-                    <div>
-                    <div style='display: flex;'>
-                      <div style='width: 50%; padding-top: 10px; margin: 10px;'>
-                        <label for='hInicio' style='font-weight: bold; display: block; text-align: center;'>Hora Início</label>
-                        <input type='hInicio' class='form-control' id='hInicio' style='text-align: center;' readonly>
-                      </div>
-                      <div style='width: 50%; padding-top: 10px; margin: 10px;'>
-                        <label for='hFim' style='font-weight: bold; display: block; text-align: center;'>Hora Fim</label>
-                        <input type='hFim' class='form-control' id='hFim' style='text-align: center;' readonly>
-                      </div>
-                    </div>
+   
+}else{
 
-                </div>
-                <div class='modal-footer'>
-                  <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
-                </div>
-              </div>
-            </div>
-          </div>";
+  echo "<table class='table table-striped border shadow p-3 mb-5 bg-white rounded' >
+          <thead>         
+          <tr class='bg-dark text-white' style='text-align:center'>
+
+            <th>Sem Resultados</th>
+            
+            
+            <a class='btn btn-primary' style='margin-left:95%; background: #5AA0CC;' href='../web/registrarTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a>
+          </tr>         
+        </thead>
+        
+        <tbody>
+</table>
+        ";
 }
+
 ?>
