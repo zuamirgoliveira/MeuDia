@@ -3,6 +3,7 @@ $('#myModal').on('shown.bs.modal', function () {
   })
   
   function openModal(json) {
+    
     $('#titulo').val(json.titulo);
     $('#subtitulo').val(json.subtitulo);
     $('#descricao').val(json.descricao);
