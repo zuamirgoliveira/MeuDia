@@ -1,3 +1,3 @@
 # MeuDia
 
-Aplicativo para gestão de atividades diárias.
+Aplicativo para gestão de atividades diárias..
