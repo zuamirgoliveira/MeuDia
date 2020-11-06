@@ -24,6 +24,7 @@ echo"<form class='form-horizontal' action='../php/cadastrarTipoTarefa.php' metho
 <!-- Registrar -->
 <div class='form-group'>
 	<div class='col-md-4'>
+		<a href='tipoTarefas.php' class='btn btn-info'>Voltar</a>
 		<button id='singlebutton' name='singlebutton' class='btn btn-success'>Cadastrar</button>
 	</div>
 </div>

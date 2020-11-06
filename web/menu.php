@@ -72,6 +72,7 @@
                 <li>
                   <a href="tipoTarefas.php">Tipos de Tarefas</a>
                 </li>
+                
                </ul>
             </div>
           </li>

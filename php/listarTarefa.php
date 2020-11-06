@@ -1,22 +1,28 @@
 <?php
 include 'conexao.php';
 
-		echo"			
-			<table class='table table-striped'>
+		echo"
+
+			<table class='table table-striped border shadow p-3 mb-5 bg-white rounded' id='resultado'>
 			    <thead>					
 					<tr class='bg-dark text-white' style='text-align:center'>
+
 						<th>Título</th>
 						<th>Horário Início</th>
 						<th>Horário Fim</th>
 						<th>Prioridade</th>
 						<th>Ações</th>
+            
             <a class='btn btn-primary' style='margin-left:95%; background: #5AA0CC;' href='../web/registrarTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a>
 					</tr>					
 				</thead>
 				<tbody>";
+
 $idUsuario = $_SESSION['idusuario'];
 
-$stmt = $conexao->query("SELECT tar.id,
+  $_POST['dataInicio'] = null;
+  $_POST['dataFim']  = null;
+$sql = "SELECT tar.id,
                                 tar.titulo,
                                 tar.descricao,
                                 tar.subtitulo,
@@ -31,7 +37,11 @@ $stmt = $conexao->query("SELECT tar.id,
                                 tipo_tarefa  tip
                           WHERE pri.id = tar.prioridade
                             AND tip.id = tar.tipo_tarefa
-                            AND tar.usuario = '$idUsuario'");
+                            AND tar.usuario = ".$idUsuario;
+
+
+
+$stmt = $conexao->query($sql);
 $contagem = $stmt->rowCount();
 
 if($contagem >= 1){
@@ -76,8 +86,8 @@ foreach($resultado as $linha){
                   <center>
                     <a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-search.svg' style='width: 30px; height: 30px;'></a>
                     <a href='alterarTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
-                    <a href='../php/excluirTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>
-                  </center>
+                    <a href='#' id='btConfirmDelete' onclick='confirmDelete(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>
+                    </center>
                   </td>
             </tr>"; 
 }

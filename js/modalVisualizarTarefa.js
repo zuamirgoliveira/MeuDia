@@ -3,6 +3,7 @@ $('#myModal').on('shown.bs.modal', function () {
   })
   
   function openModal(json) {
+    
     $('#titulo').val(json.titulo);
     $('#subtitulo').val(json.subtitulo);
     $('#descricao').val(json.descricao);
@@ -31,4 +32,11 @@ $('#myModal').on('shown.bs.modal', function () {
       break;
   }
     $('#myModal').modal('show');
+  }
+
+  function confirmDelete(json) {
+    let flag = confirm('Tem certeza que deseja excluir a tarefa "' + json.titulo + '"?');
+    if (flag) {
+      location.href = "../php/excluirTarefa.php?id="+json.id;
+    }
   }
