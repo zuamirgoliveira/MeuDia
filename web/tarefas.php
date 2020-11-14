@@ -29,7 +29,8 @@ include '../import/tarefas.html';
 				  <div class='form-group mx-sm-3 mb-2'>
 				    <input type='DATE' class='form-control' id='dataFim' required="" name='dataFim' placeholder='Data Fim'>
 				  </div>
-				  <input type='submit' class='btn btn-primary mb-2' id='buscarTarefasPorData' >
+          <a href='#' class='border shadow p-2  bg-white rounded'  id='buscarTarefasPorData' style='margin-right: 10px;'><img src='../css/img/icons8-search.svg' style='width: 20px; height: 20px;' class=''></a>
+				  
 			</form></div>
 
 			<?php include '../php/erroTarefa.php'; ?>
@@ -122,7 +123,7 @@ foreach($resultado as $linha){
                 echo"
                 <td style='white-space: nowrap;'>
                   <center>
-                    <a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-search.svg' style='width: 30px; height: 30px;'></a>
+                    <a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-info-64.png' style='width: 30px; height: 30px;'></a>
                     <a href='alterarTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
                     <a href='../php/excluirTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>
                   </center>
