@@ -150,7 +150,7 @@ echo" ";
 		</div>
 	</div>
 </main>
-<!-- Modal -->
+<!-- Modal1 -->
           <div class='modal ' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalTitle' aria-hidden='true'>
             <div class='modal-dialog modal-dialog-centered' role='document'>
               <div class='modal-content'>
@@ -188,7 +188,23 @@ echo" ";
                 </div>
               </div>
             </div>
+         
           </div>
+</div>
+</div>
+          
+   </div>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
