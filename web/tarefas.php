@@ -44,6 +44,7 @@ include '../import/tarefas.html';
 						<th>Títulos</th>
 						<th>Horário Início</th>
 						<th>Horário Fim</th>
+            <th>Data de Cadastro</th>
 						<th>Prioridade</th>
 						<th>Ações</th>
             
@@ -95,6 +96,7 @@ foreach($resultado as $linha){
                 if ($linha['h_inicio'] != '') {
                   echo"<td style='white-space: nowrap;'>".$linha['h_inicio']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; width: 15px; height: 15px;'></td>
                   <td style='white-space: nowrap;'>".$linha['h_fim']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; margin-bottom: 3px; width: 15px; height: 15px;'></td>
+                  <td style='white-space: nowrap;'>".$linha['data_tarefa']."</td>
                   ";
                 } else {
                   echo"<td>--:--</td>

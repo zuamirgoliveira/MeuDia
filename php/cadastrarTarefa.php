@@ -43,6 +43,10 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($tipot
 							// Redirecionar para página de alterar perfil
 							header("Location: ../web/alterarPerfil.php");
 					}else{
+								//Verifica conflito de horário
+
+							
+
 							$stmt = $conexao->prepare("insert into tarefa(usuario,titulo,subtitulo,descricao,h_inicio,h_fim,tipo_tarefa,prioridade,data_tarefa) values (?,?,?,?,?,?,?,?,CURRENT_DATE())");
 
 							$stmt -> bindParam(1,$idUsuario);
@@ -56,7 +60,12 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($tipot
 
 							$stmt->execute();
 
-							header("Location: ../web/tarefas.php");
+
+							include 'inserirNotificacao.php';
+							
+							//header("Location: ../web/tarefas.php");
+
+							
 					}
 				}
 			}
