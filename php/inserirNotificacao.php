@@ -1,7 +1,11 @@
 <?php 
 
+$countTotal = 0;
+
+//consulta todas as tarefas do usuario
 $consulta1 = "SELECT * from tarefa where usuario = '$idUsuario'";
 $stmt = $conexao->query($consulta1);
+$contagem = $stmt->rowCount();
 if($contagem >= 1){
 
 	$resultado = $stmt->fetchAll();
@@ -21,7 +25,7 @@ if($contagem >= 1){
 		echo "//";
 
 
-
+		//faz a pesquisa se tem conflito de tarefas
 		$consulta2 = "SELECT * from tarefa where usuario = '$idUsuario' AND ((h_inicio >= '$hinicioVerificar' and h_inicio <= '$hfimVerificar') or (h_fim >= '$hfimVerificar' and h_fim <= '$hinicioVerificar')) AND id != '$id'";
 		echo $consulta2;
 
@@ -29,12 +33,16 @@ if($contagem >= 1){
 		$contagem2 = $stmt->rowCount();
 
 		if($contagem2 >= 1){
+			$countTotal = $countTotal + 1;
 			echo "//";
+			// verifica se já existe notificação de conflito
 			$consulta3 = "SELECT * FROM usuario_notificacao where usuario = '$idUsuario' and notificacao='1'";
 			echo $consulta3;
 			$stmt = $conexao->query($consulta3);
 			$contagem3 = $stmt->rowCount();
 			if($contagem3 >= 1){
+				
+
 				echo ' chegou 1';
 				header("Location: ../web/tarefas.php");
 			}else{
@@ -53,11 +61,20 @@ if($contagem >= 1){
 		}
 }
 
-
+	
 
 
 
 
 }
+
+
+
+}
+
+if($countTotal == 0){
+$stmt = $conexao->prepare("DELETE FROM usuario_notificacao where usuario = '$idUsuario' and notificacao='1'");
+$stmt->execute();
+header("Location: ../web/tarefas.php?acb");
 }
  ?>
