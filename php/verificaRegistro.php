@@ -13,22 +13,22 @@ include 'conexao.php';
 		$contagem = $stmt->rowCount();
 		
 		if($contagem == 1){
-
 			header('Location: ../web/registrar.php?erroRegistro=true');
-
-				
-			
 		}else{
-
 			$stmt = $conexao->prepare("insert into usuario(login,senha,nome,email) values (?,?,?,?)");
 			$stmt -> bindParam(1,$login);
 			$stmt -> bindParam(2,$senha);
 			$stmt -> bindParam(3,$nome);
-			$stmt -> bindParam(4,$email);
-			$stmt->execute();
+      $stmt -> bindParam(4,$email);
+			$sucesso = $stmt -> execute();
+			$last_id = $conexao -> lastInsertId();
 
+			if ($sucesso == 1) {
+				$stmt = $conexao->prepare("INSERT INTO tipo_tarefa (descricao, usuario, h_inicio, h_fim, liga_desliga) VALUES ('Sono', $last_id, '22:00:00', '06:00:00', 0), ('Lazer', $last_id, null, null, 0), ('Estudo', $last_id, null, null, 0), ('Trabalho', $last_id, null, null, 0), ('Outros', $last_id, null, null, 0)");
+				$stmt -> execute();
+			}
 
-			header('Location: ../web/login.php?registro=true');
+      header('Location: ../web/login.php?registro=true');
 
 		}
 	}else{

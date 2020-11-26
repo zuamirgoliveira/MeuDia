@@ -17,7 +17,7 @@ if(!empty($_GET['registro'])){
   unset($_GET['registro']);
  echo"<div class='alert alert-success alert-dismissible'>
     <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
-    Registrado com sucesso!.
+    Registrado com sucesso!
   </div>";
 }
 
