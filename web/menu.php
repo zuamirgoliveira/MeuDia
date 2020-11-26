@@ -1,7 +1,5 @@
 <?php include '../php/verificaUsuario.php';?> 
 <?php include '../import/menu.html';?>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name = "google-signin-client_id" content = "279705500392-hanis720lsttntdsq915u5j6cla5urm9.apps.googleusercontent.com">
 
 <div class="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -145,33 +143,25 @@
       <!-- sidebar-menu  -->
     </div>
     <!-- sidebar-content  -->
-    <script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-  function onLoad() {
-      gapi.load('auth2', function() {
-        gapi.auth2.init();
-      });
-    }
-</script>
     <div class="sidebar-footer">
-     <a href="#" class="sidebar-icone" data-toggle="modal" data-target="#myModal1">
+      <a href="#" class="sidebar-icone" data-toggle="modal" data-target="#myModal1">
         <i class="fa fa-bell"></i>
        <span class="badge badge-pill badge-warning notification" ><?php include '../php/qtdNotificacao.php'; ?></span>
       </a>
-      <a href="../php/deslogar.php" onclick="signOut();" class="sidebar-icone">
+      <a href="../php/deslogar.php" class="sidebar-icone">
         <i class="fa fa-power-off"></i>
       </a>
+      
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      ...
     </div>
-  </nav>
-  <!-- sidebar-wrapper  -->
+  </div>
+</div>
 
-<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
- <div class='modal ' id='myModal1' tabindex='-1' role='dialog' aria-labelledby='myModalTitle' aria-hidden='true' style="z-index: 1041">
+<!-- Small modal -->
+<div class='modal ' id='myModal1' tabindex='-1' role='dialog' aria-labelledby='myModalTitle' aria-hidden='true' style="z-index: 1041">
             <div class='modal-dialog modal-dialog-centered' role='document'>
               <div class='modal-content'>
                 <div class="modal-header">
@@ -191,5 +181,10 @@
             </div>
          
           </div>
-<!-- page-wrapper -->
-    
+</div>
+</div>
+
+    </div>
+  </nav>
+
+

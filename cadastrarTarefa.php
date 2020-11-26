@@ -63,7 +63,7 @@ if (!empty($titulo) && !empty($subtitulo) && !empty($descricao) && !empty($tipot
 
 							include 'inserirNotificacao.php';
 							
-							//header("Location: ../web/tarefas.php");
+							header("Location: ../web/tarefas.php");
 
 							
 					}
