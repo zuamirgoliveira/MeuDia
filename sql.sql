@@ -28,6 +28,8 @@ h_sono_inicio time,
 h_sono_fim time
 );
 
+ALTER TABLE usuario ADD url_imagem VARCHAR(255) NULL;
+
 create table tipo_tarefa(
 id int primary key NOT NULL AUTO_INCREMENT,
 descricao varchar (300) NOT NULL,
