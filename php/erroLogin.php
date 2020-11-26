@@ -21,5 +21,12 @@ if(!empty($_GET['registro'])){
   </div>";
 }
 
+if(!empty($_GET['recuperarSenha'])){
+  unset($_GET['recuperarSenha']);
+ echo"<div class='alert alert-success alert-dismissible'>
+    <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+    Nova senha enviada com sucesso! Verifique sua caixa de email.
+  </div>";
+}
 
 ?>
