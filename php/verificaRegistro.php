@@ -6,7 +6,7 @@ include 'conexao.php';
 	$login = $_POST['username'];
 	$senha = $_POST['password'];
 	$nome = $_POST['nome'];
-        $email = $_POST['email'];
+    $email = $_POST['email'];
 
 	if(!empty($login) && !empty($senha) && !empty($nome) && !empty($email) ){
 		$stmt = $conexao->query("select login from usuario where login='$login'");

@@ -26,11 +26,11 @@
     <!-- SENHA -->
     <input type="password" class="form-control password" placeholder="Password" required="" name="password" id="password">
     <!-- LOGAR -->
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+    <button class="btn btn-lg btn-primary btn-block" style="background: #5AA0CC;" type="submit">Logar</button>
 	 <!-- NOVA CONTA -->
-    <center><a href="registrar.php">Criar nova conta</a></center>
-	 <!-- RECUPERAR SENHA -->
-    <center> <a href="../web/recuperarSenha.php"> Recuperar Senha </a> </center>
+    <center style="margin: 10px;"><a style="color: #5AA0CC;" href="registrar.php">Criar nova conta</a></center>
+   <!-- RECUPERAR SENHA -->
+   <center><a style="color: #5AA0CC;" href="recuperarSenha.php">Recuperar senha</a></center>
   </form>
   
   
