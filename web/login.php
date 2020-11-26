@@ -27,8 +27,13 @@
     <input type="password" class="form-control password" placeholder="Password" required="" name="password" id="password">
     <!-- LOGAR -->
     <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
+	 <!-- NOVA CONTA -->
     <center><a href="registrar.php">Criar nova conta</a></center>
+	 <!-- RECUPERAR SENHA -->
+    <center> <a href="../web/recuperarSenha.php"> Recuperar Senha </a> </center>
   </form>
+  
+  
 
 </div>
 
