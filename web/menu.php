@@ -1,5 +1,7 @@
 <?php include '../php/verificaUsuario.php';?> 
 <?php include '../import/menu.html';?>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name = "google-signin-client_id" content = "279705500392-hanis720lsttntdsq915u5j6cla5urm9.apps.googleusercontent.com">
 
 <div class="page-wrapper chiller-theme toggled">
   <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
@@ -143,19 +145,32 @@
       <!-- sidebar-menu  -->
     </div>
     <!-- sidebar-content  -->
+    <script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  function onLoad() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init();
+      });
+    }
+</script>
     <div class="sidebar-footer">
       <a href="#" class="sidebar-icone">
         <i class="fa fa-bell"></i>
        <span class="badge badge-pill badge-warning notification">3</span>
       </a>
-      <a href="../php/deslogar.php" class="sidebar-icone">
+      <a href="../php/deslogar.php" onclick="signOut();" class="sidebar-icone">
         <i class="fa fa-power-off"></i>
       </a>
     </div>
   </nav>
   <!-- sidebar-wrapper  -->
 
-
+<script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
  
 <!-- page-wrapper -->
     
