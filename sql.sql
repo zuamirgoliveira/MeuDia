@@ -23,8 +23,7 @@ email varchar(50),
 senha varchar(100) NOT NULL,
 sexo varchar(100),
 nome varchar(100),
-h_estudo_fim time,
-h_estudo_inicio time,
+email varchar(100),
 h_sono_inicio time,
 h_sono_fim time
 );
