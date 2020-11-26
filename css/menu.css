@@ -483,7 +483,3 @@ body {
 .chiller-theme .sidebar-footer>a:last-child {
     border-right: none;
 }
-.modal-backdrop{
-
-  z-index: 800 !important;
-}
