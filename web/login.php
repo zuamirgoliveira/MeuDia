@@ -28,11 +28,14 @@
     <!-- SENHA -->
     <input type="password" class="form-control password" placeholder="Password" required="" name="password" id="password">
     <!-- LOGAR -->
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Logar</button>
-<center><div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 10px"></div></center>
-    <center><a href="registrar.php">Criar nova conta</a></center>
-
+    <button class="btn btn-lg btn-primary btn-block" style="background: #5AA0CC;" type="submit">Logar</button>
+	 <!-- NOVA CONTA -->
+    <center style="margin: 10px;"><a style="color: #5AA0CC;" href="registrar.php">Criar nova conta</a></center>
+   <!-- RECUPERAR SENHA -->
+   <center><a style="color: #5AA0CC;" href="recuperarSenha.php">Recuperar senha</a></center>
   </form>
+  
+  
 
 </div>
 

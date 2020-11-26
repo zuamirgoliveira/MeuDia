@@ -160,9 +160,9 @@
     }
 </script>
     <div class="sidebar-footer">
-      <a href="#" class="sidebar-icone">
+     <a href="#" class="sidebar-icone" data-toggle="modal" data-target="#myModal1">
         <i class="fa fa-bell"></i>
-       <span class="badge badge-pill badge-warning notification">3</span>
+       <span class="badge badge-pill badge-warning notification" ><?php include '../php/qtdNotificacao.php'; ?></span>
       </a>
       <a href="../php/deslogar.php" onclick="signOut();" class="sidebar-icone">
         <i class="fa fa-power-off"></i>
@@ -172,6 +172,25 @@
   <!-- sidebar-wrapper  -->
 
 <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
- 
+ <div class='modal ' id='myModal1' tabindex='-1' role='dialog' aria-labelledby='myModalTitle' aria-hidden='true' style="z-index: 1041">
+            <div class='modal-dialog modal-dialog-centered' role='document'>
+              <div class='modal-content'>
+                <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Notificações</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php include '../php/listarNotificacao.php'; ?>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+      </div>
+              </div>
+            </div>
+         
+          </div>
 <!-- page-wrapper -->
     

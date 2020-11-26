@@ -28,7 +28,8 @@
     <input type="text" class="form-control" placeholder="Login" required="" autofocus="" name="username" id="username">
     <!-- SENHA -->
     <input type="password" class="form-control" placeholder="Senha" required="" name="password" id="password">
-
+    <!-- EMAIL -->
+    <input type="email" class="form-control" placeholder="Email" required="" name="email" id="email">
     <!-- Nome e sobrenome -->
     <input type="" class="form-control" placeholder="Nome e Sobrenome" required="" name="nome" id="nome">
     
