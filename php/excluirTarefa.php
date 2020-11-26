@@ -30,7 +30,7 @@ try{
 		}
 
 
-include 'inserirNotificacao.php';
+
 
 		
 
