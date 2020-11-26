@@ -25,7 +25,11 @@
 			</div>
 		</div>		
 	</div>
+		
 	<?php include '../php/graficoTipoTarefas.php'; ?>
+	
+	<?php include '../php/graficoHorarioTarefas.php'; ?>
+
 </main>
 
 <!-- page-content" -->

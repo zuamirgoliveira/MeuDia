@@ -4,6 +4,8 @@
 
 <title>MeuDia - Login </title>
 <?php include '../import/login.html';?>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name = "google-signin-client_id" content = "279705500392-hanis720lsttntdsq915u5j6cla5urm9.apps.googleusercontent.com">
 
 </head>
 
@@ -39,7 +41,38 @@
 
 
 </div>
+<p id="msg"> </p>
+<script type="text/javascript">
+    
+
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  var userId = profile.getId(); // Do not send to your backend! Use an ID token instead.
+  var userName = profile.getName();
+  console.log('Image URL: ' + profile.getImageUrl());
+  var userEmail = profile.getEmail(); // This is null if the 'email' scope is not present.
+  var userToken = googleUser.getAuthResponse().id_token;
+
+    if (userName !== '') {
+
+        var dados = {
+            userId:userId,
+            userName:userName,
+            userEmail:userEmail
 
 
+        };
+
+        $.post('../php/loginGoogle.php', dados, function(retorna){
+
+            window.location.href = retorna;
+
+        });
+
+
+    }
+
+}
+</script>
 </body>
 </html>
