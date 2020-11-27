@@ -1,73 +1,64 @@
-drop database if exists meudia;
-create database meudia;
-use meudia;
+DROP DATABASE IF EXISTS meudia;
+CREATE DATABASE meudia;
+USE meudia;
 
-create table prioridade(
-id int primary key NOT NULL AUTO_INCREMENT,
-nemotecnico varchar(50) NOT NULL,
-descricao varchar (300) NOT NULL
+CREATE TABLE prioridade (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	nemotecnico VARCHAR(50) NOT NULL,
+	descricao VARCHAR(300) NOT NULL
 );
 
-create table notificacao(
-id int primary key NOT NULL AUTO_INCREMENT,
-titulo varchar(50) NOT NULL,
-classificacao varchar(50) NOT NULL,
-descricao varchar (300) NOT NULL
+CREATE TABLE notificacao (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	titulo VARCHAR(50) NOT NULL,
+	classificacao VARCHAR(50) NOT NULL,
+	descricao VARCHAR (300) NOT NULL
 );
 
-
-create table usuario(
-id int primary key NOT NULL AUTO_INCREMENT,
-login varchar(100) NOT NULL,
-senha varchar(100) NOT NULL,
-sexo varchar(100),
-nome varchar(100),
-h_estudo_fim time,
-h_estudo_inicio time,
-h_sono_inicio time,
-h_sono_fim time
+CREATE TABLE usuario (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	login VARCHAR(100) NOT NULL,
+	senha VARCHAR(100) NOT NULL,
+	sexo VARCHAR(100),
+	nome VARCHAR(255),
+	h_sono_inicio TIME,
+	h_sono_fim TIME,
+	email VARCHAR(100),
+	url_imagem VARCHAR(300) NULL
 );
 
-ALTER TABLE usuario ADD url_imagem VARCHAR(255) NULL;
-
-create table tipo_tarefa(
-id int primary key NOT NULL AUTO_INCREMENT,
-descricao varchar (300) NOT NULL,
-usuario int,
-h_inicio time,
-h_fim time,
-CONSTRAINT usuario FOREIGN KEY (usuario) references usuario(id)
+CREATE TABLE tipo_tarefa (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	descricao VARCHAR(300) NOT NULL,
+	usuario INT,
+	h_inicio TIME,
+	h_fim TIME,
+    dt_desliga DATE,
+    liga_desliga CHAR COMMENT '0 = liga, 1 = desliga',
+	CONSTRAINT fk_usuario_tpt FOREIGN KEY (usuario) REFERENCES usuario (id)
 );
 
-ALTER TABLE tipo_tarefa
-ADD COLUMN dt_desliga DATE;
+CREATE TABLE tarefa (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	usuario INT,
+	titulo VARCHAR(100),
+	descricao VARCHAR(500),
+	subtitulo VARCHAR(200),
+	h_inicio TIME,
+	h_fim TIME,
+	data_tarefa DATE NOT NULL,
+	tipo_tarefa INT,
+	prioridade INT,
 
-ALTER TABLE tipo_tarefa
-ADD COLUMN liga_desliga CHAR COMMENT '0 = liga, 1 = desliga';
-
-create table tarefa(
-id int primary key NOT NULL AUTO_INCREMENT,
-usuario int,
-titulo varchar(100),
-descricao varchar(500),
-subtitulo varchar(200),
-h_inicio time,
-h_fim time,
-data_tarefa date NOT NULL,
-tipo_tarefa int,
-prioridade int,
-
-CONSTRAINT prioridade FOREIGN KEY (prioridade) references prioridade(id),
-CONSTRAINT usuario FOREIGN KEY (usuario) references usuario(id),
-CONSTRAINT tipo_tarefa FOREIGN KEY (tipo_tarefa) references tipo_tarefa(id)
+	CONSTRAINT fk_prioridade FOREIGN KEY (prioridade) REFERENCES prioridade(id),
+	CONSTRAINT fk_usuario_tar FOREIGN KEY (usuario) REFERENCES usuario(id),
+	CONSTRAINT fk_tipo_tarefa FOREIGN KEY (tipo_tarefa) REFERENCES tipo_tarefa(id)
 );
 
-create table usuario_notificacao(
-id int primary key NOT NULL AUTO_INCREMENT,   
-usuario int NOT NULL,
-notificacao int NOT NULL,
-CONSTRAINT fk_notificacao FOREIGN KEY (notificacao) references notificacao(id),
-CONSTRAINT fk_usuario FOREIGN KEY (usuario) references usuario(id)
+CREATE TABLE usuario_notificacao (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,   
+	usuario INT NOT NULL,
+	notificacao INT NOT NULL,
+	CONSTRAINT fk_notificacao FOREIGN KEY (notificacao) REFERENCES notificacao(id),
+	CONSTRAINT fk_usuario_notf FOREIGN KEY (usuario) REFERENCES usuario(id)
 );
-
-
