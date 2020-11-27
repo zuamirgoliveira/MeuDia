@@ -19,7 +19,6 @@ descricao varchar (300) NOT NULL
 create table usuario(
 id int primary key NOT NULL AUTO_INCREMENT,
 login varchar(100) NOT NULL,
-email varchar(50),
 senha varchar(100) NOT NULL,
 sexo varchar(100),
 nome varchar(100),

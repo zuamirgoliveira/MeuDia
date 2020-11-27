@@ -19,7 +19,7 @@ include 'conexao.php';
 			$stmt -> bindParam(1,$login);
 			$stmt -> bindParam(2,$senha);
 			$stmt -> bindParam(3,$nome);
-      $stmt -> bindParam(4,$email);
+      		$stmt -> bindParam(4,$email);
 			$sucesso = $stmt -> execute();
 			$last_id = $conexao -> lastInsertId();
 
