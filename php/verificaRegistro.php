@@ -9,13 +9,13 @@ include 'conexao.php';
     $email = $_POST['email'];
 
 	if(!empty($login) && !empty($senha) && !empty($nome) && !empty($email) ){
-		$stmt = $conexao->query("select login from usuario where login='$login'");
+		$stmt = $conexao->query("SELECT login FROM usuario WHERE login = '$login'");
 		$contagem = $stmt->rowCount();
 		
 		if($contagem == 1){
 			header('Location: ../web/registrar.php?erroRegistro=true');
 		}else{
-			$stmt = $conexao->prepare("insert into usuario(login,senha,nome,email) values (?,?,?,?)");
+			$stmt = $conexao->prepare("INSERT INTO usuario (login, senha, nome, email) VALUES (?, ?, ?, ?)");
 			$stmt -> bindParam(1,$login);
 			$stmt -> bindParam(2,$senha);
 			$stmt -> bindParam(3,$nome);
