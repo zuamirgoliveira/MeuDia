@@ -29,7 +29,8 @@ include '../import/tarefas.html';
 				  <div class='form-group mx-sm-3 mb-2'>
 				    <input type='DATE' class='form-control' id='dataFim' required="" name='dataFim' placeholder='Data Fim'>
 				  </div>
-				  <input type='submit' class='btn btn-primary mb-2' id='buscarTarefasPorData' >
+          <a href='#' class='border shadow p-2  bg-white rounded'  id='buscarTarefasPorData' style='margin-right: 10px;'><img src='../css/img/icons8-search.svg' style='width: 20px; height: 20px;' class=''></a>
+				  
 			</form></div>
 			
 			<div class='col-md-6 float-left'>
@@ -59,6 +60,7 @@ include '../import/tarefas.html';
 						<th>Títulos</th>
 						<th>Horário Início</th>
 						<th>Horário Fim</th>
+            <th>Data de Cadastro</th>
 						<th>Prioridade</th>
 						<th>Ações</th>
             
@@ -110,6 +112,7 @@ foreach($resultado as $linha){
                 if ($linha['h_inicio'] != '') {
                   echo"<td style='white-space: nowrap;'>".$linha['h_inicio']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; width: 15px; height: 15px;'></td>
                   <td style='white-space: nowrap;'>".$linha['h_fim']."<img src='../css/img/icons8-clock.svg' style='margin: 0px 0px 3px 10px; margin-bottom: 3px; width: 15px; height: 15px;'></td>
+                  <td style='white-space: nowrap;'>".$linha['data_tarefa']."</td>
                   ";
                 } else {
                   echo"<td>--:--</td>
@@ -138,9 +141,10 @@ foreach($resultado as $linha){
                 echo"
                 <td style='white-space: nowrap;'>
                   <center>
-                    <a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-search.svg' style='width: 30px; height: 30px;'></a>
+                    <a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-info-64.png' style='width: 30px; height: 30px;'></a>
                     <a href='alterarTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
                     <a href='../php/excluirTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>
+                    <a href='../php/copiarTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-copy-30.png' style='width: 30px; height: 30px;'></a>
                   </center>
                   </td>
             </tr>"; 
@@ -166,7 +170,7 @@ echo" ";
 		</div>
 	</div>
 </main>
-<!-- Modal -->
+<!-- Modal1 -->
           <div class='modal ' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalTitle' aria-hidden='true'>
             <div class='modal-dialog modal-dialog-centered' role='document'>
               <div class='modal-content'>
@@ -204,7 +208,23 @@ echo" ";
                 </div>
               </div>
             </div>
+         
           </div>
+</div>
+</div>
+          
+   </div>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
