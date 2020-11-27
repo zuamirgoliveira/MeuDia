@@ -1,5 +1,6 @@
 <?php 
 
+
 $countTotal = 0;
 
 //consulta todas as tarefas do usuario
