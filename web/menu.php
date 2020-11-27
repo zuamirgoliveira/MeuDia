@@ -17,10 +17,12 @@
       </div>
       <div class="sidebar-header">
         
-        <div class="user-info">
+        <div class="user-info" style="margin: 0 0 15px 0; ">
           <span class="user-name">
+            <img src="<?php echo $_SESSION['urlImagem'];?>" alt="Meudia" width="30" height="30" style="margin-right: 10px; border-radius: 50%">
             <strong><?php echo $_SESSION['nomeUsuario']; ?></strong>
           </span>
+        </div>
       
       <div class="sidebar-menu">
         <ul>
@@ -141,9 +143,8 @@
           </li>
         -->
         </ul>
+        <!-- sidebar-menu  -->
       </div>
-      <!-- sidebar-menu  -->
-    </div>
     <!-- sidebar-content  -->
     <script>
   function signOut() {

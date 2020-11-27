@@ -7,16 +7,16 @@ include 'conexao.php';
 	$senha = $_POST['password'];
 	if(!empty($login) && !empty($senha)){
 
-		$stmt = $conexao->query("select id,login,senha,nome from usuario where login='$login' and senha='$senha'");
+		$stmt = $conexao->query("SELECT id,login,senha,nome, email, url_imagem FROM usuario WHERE login = '$login' AND senha='$senha'");
 		$contagem = $stmt->rowCount();
 		if($contagem == 1){
-
 			$resultado = $stmt->fetchAll();
-
 			foreach($resultado as $linha){
 				$_SESSION['login'] =$linha["login"];
 	    		$_SESSION['idusuario'] = $linha["id"];
-	    		$_SESSION['nomeUsuario'] = $linha["nome"];
+				$_SESSION['nomeUsuario'] = $linha["nome"];
+				$_SESSION['email'] = $linha["email"];
+				$_SESSION['urlImagem'] = $linha["url_imagem"];
 	    		header('Location: ../web/timeline.php');
 			}	
 			

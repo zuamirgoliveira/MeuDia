@@ -20,20 +20,21 @@
 <div class="container">
 
   <form class="form-signin border shadow p-3 mb-5 bg-white rounded" method="POST" action="../php/verificaLogin.php">
-
-    <!-- LOGO -->
-    <h1 class="form-signin-heading text-muted"><img src="../css/img/logo-meudia-login.png" style="height: 150px"></h1>
-    <!-- USUARIO -->
-    <input type="text" class="form-control username" placeholder="Username" required="" autofocus="" name="username" id="username">
-    <!-- SENHA -->
-    <input type="password" class="form-control password" placeholder="Password" required="" name="password" id="password">
-    <!-- LOGAR -->
-    <button class="btn btn-lg btn-primary btn-block" style="background: #5AA0CC;" type="submit">Logar</button>
-	 <!-- NOVA CONTA -->
-    <center style="margin: 10px;"><a style="color: #5AA0CC;" href="registrar.php">Criar nova conta</a></center>
-   <!-- RECUPERAR SENHA -->
-   <center><a style="color: #5AA0CC;" href="recuperarSenha.php">Recuperar senha</a></center>
-  </form>
+        <!-- LOGO -->
+        <h1 class="form-signin-heading text-muted"><img src="../css/img/logo-meudia-login.png" style="height: 150px"></h1>
+        <!-- USUARIO -->
+        <input type="text" class="form-control username" placeholder="Username" required="" autofocus="" name="username" id="username">
+        <!-- SENHA -->
+        <input type="password" class="form-control password" placeholder="Password" required="" name="password" id="password">
+        <!-- LOGAR -->
+        <button class="btn btn-lg btn-primary btn-block" style="background: #5AA0CC;" type="submit">Logar</button>
+        <!-- LOGIN GOOGLE -->
+        <center><div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 10px; width: 250px; "></div></center>
+        <!-- NOVA CONTA -->
+        <div style="margin: 20px 0 0 0; text-align: center;"><a style="color: #5AA0CC; font-size: 12px;" href="registrar.php">Cadastre-se</a></div>
+        <!-- RECUPERAR SENHA -->
+        <div style="text-align: center;"><a style="color: #5AA0CC; font-size: 12px;" href="recuperarSenha.php">Recuperar senha</a></div>
+    </form>
   
   
 
