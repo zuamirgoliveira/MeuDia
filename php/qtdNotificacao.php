@@ -1,6 +1,5 @@
 <?php 
 
-
 include 'conexao.php';
 
 $idUsuario = $_SESSION['idusuario'];
