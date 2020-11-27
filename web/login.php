@@ -35,9 +35,6 @@
         <!-- RECUPERAR SENHA -->
         <div style="text-align: center;"><a style="color: #5AA0CC; font-size: 12px;" href="recuperarSenha.php">Recuperar senha</a></div>
     </form>
-  
-  
-
 </div>
 
 
@@ -47,33 +44,26 @@
     
 
     function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  var userId = profile.getId(); // Do not send to your backend! Use an ID token instead.
-  var userName = profile.getName();
-  console.log('Image URL: ' + profile.getImageUrl());
-  var userEmail = profile.getEmail(); // This is null if the 'email' scope is not present.
-  var userToken = googleUser.getAuthResponse().id_token;
+        let profile = googleUser.getBasicProfile();
+        let userId = profile.getId(); // Do not send to your backend! Use an ID token instead.
+        let userName = profile.getName();
+        let userImagem = profile.getImageUrl();
+        let userEmail = profile.getEmail(); // This is null if the 'email' scope is not present.
+        let userToken = googleUser.getAuthResponse().id_token;
 
-    if (userName !== '') {
-
-        var dados = {
-            userId:userId,
-            userName:userName,
-            userEmail:userEmail
-
-
-        };
-
-        $.post('../php/loginGoogle.php', dados, function(retorna){
-
-            window.location.href = retorna;
-
-        });
-
-
+            if (userName !== '') {
+                let dados = {
+                    userId,
+                    userName,
+                    userEmail,
+                    userImagem
+                };
+                console.log(dados);
+                $.post('../php/loginGoogle.php', dados, function(retorna){
+                    window.location.href = retorna;
+                });
+            }
     }
-
-}
 </script>
 </body>
 </html>
