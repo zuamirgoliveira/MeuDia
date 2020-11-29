@@ -1,5 +1,6 @@
 <?php include '../php/conexao.php';
 $idUsuario = $_SESSION['idusuario'];
+
 $sql1 = "SELECT CASE WHEN count(id) IS NOT NULL THEN COUNT(id) ELSE 0 END AS QUANTIDADE from tarefa where ((h_inicio >= '00:00' and h_inicio <= '11:59') or (h_fim >='00:00' and h_fim <= '11:59')) and usuario = '$idUsuario'";
 
 $stmt = $conexao->query($sql1);
@@ -12,11 +13,17 @@ $stmt = $conexao->query($sql2);
 
 $resultado2 = $stmt->fetchAll();
 
+
 $sql3 = "SELECT CASE WHEN count(id) IS NOT NULL THEN COUNT(id) ELSE 0 END from tarefa where ((h_inicio >= '18:00' and h_inicio <= '23:59') or (h_fim >='18:00' and h_fim <= '23:59')) and usuario = '$idUsuario'";
 
 $stmt = $conexao->query($sql3);
 
 $resultado3 = $stmt->fetchAll();
+
+$contagem = $resultado1[0][0] + $resultado2[0][0] + $resultado3[0][0];
+
+
+  if($contagem > 0){
 
 ?>
 
@@ -77,4 +84,4 @@ var arr1 = new Array();
 
     <center><div id="donutchart1" style="width: 900px; height: 500px;" class="border shadow p-3 mb-5 bg-white rounded"></div></center>
 
-   
+   <?php } ?>

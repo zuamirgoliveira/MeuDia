@@ -21,20 +21,21 @@ $userImagem = filter_input(INPUT_POST, 'userImagem', FILTER_SANITIZE_STRING); //
 			}	
 			
 		}else{
-			$stmt = $conexao->prepare("INSERT INTO usuario (login, senha, nome, email, url_imagem) VALUES (".$userName.", '123456', ".$userName.", ".$userEmail.", ".$userImagem.")");
+			$stmt = $conexao->prepare("INSERT INTO usuario (login, senha, nome, email, url_imagem) VALUES ('$userName', '123456', '$userName', '$userEmail', '$userImagem')");
 			$sucesso = $stmt->execute();			
 			$last_id = $conexao->lastInsertId();
 
 			if ($sucesso == 1) {
-				$stmt = $conexao->prepare("INSERT INTO tipo_tarefa (descricao, usuario, h_inicio, h_fim, liga_desliga) VALUES ('Sono', ".$last_id.", '22:00:00', '06:00:00', 0), ('Lazer', ".$last_id.", null, null, 0), ('Estudo', ".$last_id.", null, null, 0), ('Trabalho', $last_id, null, null, 0), ('Outros', $last_id, null, null, 0)");
+				$stmt = $conexao->prepare("INSERT INTO tipo_tarefa (descricao, usuario, h_inicio, h_fim, liga_desliga) VALUES ('Sono', ".$last_id.", '22:00:00', '06:00:00', 0), ('Lazer', '$last_id', null, null, 0), ('Estudo', '$last_id', null, null, 0), ('Trabalho', $last_id, null, null, 0), ('Outros', $last_id, null, null, 0)");
 				$stmt -> execute();
 				$_SESSION['login'] = $userName;
 	    		$_SESSION['idusuario'] = $last_id;
 				$_SESSION['nomeUsuario'] = $userName;
 				$_SESSION['urlImagem'] = $userImagem;
 				echo '../web/timeline.php';
-			}
+			}else{
 			echo '../web/login.php?erroLogin=true';
+		}
 		}
 
 

@@ -87,5 +87,22 @@ $resultado = $stmt->fetchAll();
 							</div>
 						</li>";       
 	}
+}else{
+
+	echo "<center>
+
+		<div class='col-md-12 border shadow p-3 mb-5 bg-white rounded'>
+			<p>Você não tem tarefas cadastradas.</p>
+			<a type='button' class='btn btn-info' href='../web/registrarTarefa.php'>Cadastrar Tarefas</a>
+
+
+		 </div>
+
+
+
+	</center>";
+
+
+
 }
 ?>
