@@ -49,5 +49,34 @@
 	</div>
 </div>
 </main>	
+
+
+<!-- Development -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+<!-- Production -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+      // With the above scripts loaded, you can call `tippy()` with a CSS
+      // selector and a `content` prop:
+      tippy('#btModal', {
+        content: 'Informações Adicionais',
+      });
+      tippy('#btnEditar', {
+        content: 'Editar  Tipo Tarefa',
+      });
+      tippy('#btConfirmDelete', {
+        content: 'Excluir Tipo Tarefa',
+      });
+      tippy('.btnOn', {
+        content: 'Desativar Tipo tarefa para o dia atual',
+      });
+tippy('#registrarTipoTarefa', {
+        content: 'Novo Tipo de Tarefa',
+      });
+
+    </script>
 </body>
 </html>

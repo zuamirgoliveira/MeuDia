@@ -1,10 +1,11 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html>
 <head>
     
 
 <?php 
-session_start(); 
+
 include '../import/tarefas.html';
 
 ?>
@@ -64,7 +65,7 @@ include '../import/tarefas.html';
 						<th>Prioridade</th>
 						<th>Ações</th>
             
-            <a class='btn btn-primary' style='margin-left:95%; background: #5AA0CC;' href='../web/registrarTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a>
+            <a class='btn btn-primary' id='registrarTarefa' style='margin-left:95%; background: #5AA0CC;' href='../web/registrarTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a>
 					</tr>					
 				</thead>
 				
@@ -142,9 +143,9 @@ foreach($resultado as $linha){
                 <td style='white-space: nowrap;'>
                   <center>
                     <a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-info-64.png' style='width: 30px; height: 30px;'></a>
-                    <a href='alterarTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
-                    <a href='../php/excluirTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>
-                    <a href='../php/copiarTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-copy-30.png' style='width: 30px; height: 30px;'></a>
+                    <a href='alterarTarefa.php?id=".$linha['id']."' id='btnAlterar' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
+                    <a href='../php/excluirTarefa.php?id=".$linha['id']."' id='btnExcluir' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>
+                    <a href='../php/copiarTarefa.php?id=".$linha['id']."' id='btnCopiar' style='margin-right: 3px;'><img src='../css/img/icons8-copy-30.png' style='width: 30px; height: 30px;'></a>
                   </center>
                   </td>
             </tr>"; 
@@ -216,7 +217,33 @@ echo" ";
    </div>
 
 
+<!-- Development -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 
+<!-- Production -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+      // With the above scripts loaded, you can call `tippy()` with a CSS
+      // selector and a `content` prop:
+      tippy('#btModal', {
+        content: 'Informações Adicionais',
+      });
+      tippy('#btnAlterar', {
+        content: 'Alterar Tarefa',
+      });
+      tippy('#btnExcluir', {
+        content: 'Excluir Tarefa',
+      });
+      tippy('#btnCopiar', {
+        content: 'Copiar Tarefa para o dia atual',
+      });
+tippy('#registrarTarefa', {
+        content: 'Nova Tarefa',
+      });
+
+    </script>
 
 
 
