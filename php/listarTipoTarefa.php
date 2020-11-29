@@ -7,7 +7,7 @@ echo "<table class='table table-striped'>
 			<tr class='bg-dark text-white'>
 				<th><center>Descrição</center></th>
 				<th><center style='margin-right: 8px'>Ações</center></th>
-				<center> <a class='btn' style='margin-left: 95%; background: #5AA0CC;' href='registrarTipoTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a></center>
+				<center> <a class='btn' style='margin-left: 95%; background: #5AA0CC;' id='registrarTipoTarefa' href='registrarTipoTarefa.php'><i style='color: white;' class='fa fa-plus'></i></a></center>
 			</tr>
         </thead>
         <tbody>";
@@ -38,11 +38,11 @@ foreach($resultado as $linha){
 					<td> 
 						<center>
 						<div id='console-event'></div>
-							<a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-search.svg' style='width: 30px; height: 30px;'></a>
-							<a href='alterarTipoTarefa.php?id=".$linha['id']."' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
-							<a href='#' id='btConfirmDelete' onclick='confirmDelete(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>";
+							<a href='#' id='btModal' onclick='openModal(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-info-64.png' style='width: 30px; height: 30px;'></a>
+							<a href='alterarTipoTarefa.php?id=".$linha['id']."' id='btnEditar' style='margin-right: 3px;'><img src='../css/img/icons8-edit.svg' style='width: 30px; height: 30px;'></a>
+							<a href='#' id='btConfirmDelete'  onclick='confirmDelete(".$linha['json'].")' style='margin-right: 3px;'><img src='../css/img/icons8-trash.svg' style='width: 30px; height: 30px;'></a>";
 							if ($linha['liga_desliga'] == 0) {
-								echo"<button id='btn-on-".$linha['id']."' type='button' style='background: #4CD9AC; color: white;' class='btn' data-toggle='button' aria-pressed='false' autocomplete='off' onclick='ligDesl(".$linha['id'].",".$linha['liga_desliga'].")'>On</button>";
+								echo"<button id='btn-on-".$linha['id']."' name='btnOn' type='button' style='background: #4CD9AC; color: white;' class='btn btnOn' data-toggle='button' aria-pressed='false' autocomplete='off' onclick='ligDesl(".$linha['id'].",".$linha['liga_desliga'].")'>On</button>";
 							} else {
 								echo"<button id='btn-on-".$linha['id']."' type='button' style='background: #D97373;' class='btn' data-toggle='button' aria-pressed='false' autocomplete='off' onclick='ligDesl(".$linha['id'].",".$linha['liga_desliga'].")'>Off</button>";
 							}
